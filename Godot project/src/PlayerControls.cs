@@ -1,10 +1,10 @@
 using Godot;
 using System;
 
-public partial class PlayerControls : CharacterBody2D {
+public partial class PlayerControls : CharacterBody3D {
 
 	[Export]
-	public float speed;
+	public float speed, acceleration, brakeMultiplier;
 
 	public override void _Ready() {
 		InputMap.LoadFromProjectSettings();
@@ -12,9 +12,10 @@ public partial class PlayerControls : CharacterBody2D {
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame
 	public override void _Process(double delta) {
-
+		float fDelta = (float)delta;
 		float horizontalDirection = Input.GetAxis("moveLeft", "moveRight");
-		Velocity = new Vector2(horizontalDirection * speed, 0);
+
+		GD.Print(horizontalDirection);
 
 		if (Input.IsActionJustPressed("jump")) {
 			// Jump.
@@ -27,6 +28,24 @@ public partial class PlayerControls : CharacterBody2D {
 		if (Input.IsActionJustPressed("closeGame")) {
 			GetTree().Quit();
 		}
+
+		var horizontalVelocity = Velocity.X;
+
+		if (horizontalDirection == 0) {
+			horizontalVelocity = Mathf.MoveToward(horizontalVelocity, 0, acceleration * fDelta);
+		}
+		else {
+			var addition = horizontalDirection * acceleration * fDelta;
+			if ((horizontalDirection > 0 && horizontalVelocity < 0) ||
+			    (horizontalDirection < 0 && horizontalVelocity > 0)) {
+				addition *= brakeMultiplier;
+			}
+
+			horizontalVelocity += addition;
+			horizontalVelocity = Math.Clamp(horizontalVelocity, -speed, speed);
+		}
+
+		Velocity = new Vector3(horizontalVelocity, 0, 0);
 
 		MoveAndSlide();
 	}

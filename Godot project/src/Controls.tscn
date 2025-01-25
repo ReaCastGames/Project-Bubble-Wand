@@ -1,43 +1,55 @@
-[gd_scene load_steps=6 format=3 uid="uid://deattsl48bcb5"]
+[gd_scene load_steps=6 format=3 uid="uid://cwhgqj7orp3f"]
 
 [ext_resource type="Script" path="res://src/PlayerControls.cs" id="1_ed5n5"]
 
-[sub_resource type="Gradient" id="Gradient_6h46l"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_7pvag"]
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_xwa1l"]
-gradient = SubResource("Gradient_6h46l")
+[sub_resource type="SphereMesh" id="SphereMesh_dvwjo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_an5wd"]
-size = Vector2(42, 41)
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnxkw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjdpv"]
-size = Vector2(309, 1126)
+[sub_resource type="BoxMesh" id="BoxMesh_xba1f"]
 
-[node name="Controls" type="Node2D"]
+[node name="Controls" type="Node3D"]
 
-[node name="TestCharacter" type="CharacterBody2D" parent="."]
-position = Vector2(960, 858)
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+axis_lock_linear_y = true
+axis_lock_linear_z = true
 script = ExtResource("1_ed5n5")
-speed = 250.0
+speed = 5.0
+acceleration = 3.75
+brakeMultiplier = 2.0
 
-[node name="Sprite2D" type="Sprite2D" parent="TestCharacter"]
-position = Vector2(0, 19.75)
-scale = Vector2(0.164063, 40.5)
-texture = SubResource("GradientTexture1D_xwa1l")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("SphereShape3D_7pvag")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestCharacter"]
-position = Vector2(0, 19.5)
-shape = SubResource("RectangleShape2D_an5wd")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("SphereMesh_dvwjo")
 
-[node name="LeftWall" type="StaticBody2D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.893701, 0.448664, 0, -0.448664, 0.893701, 0, 1.64839, 3.50891)
+current = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
-position = Vector2(144.5, 553)
-shape = SubResource("RectangleShape2D_sjdpv")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.984066, -0.102275, 0.145447, 3.70148e-09, 0.818009, 0.575205, -0.177806, -0.56604, 0.804975, -2.33292, 1.70672, 1.99235)
 
-[node name="RightWall" type="StaticBody2D" parent="."]
-position = Vector2(1643, 212)
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.959077, 0.162866, -0.231615, 3.70148e-09, 0.818009, 0.575205, 0.283145, -0.551666, 0.784534, -1.10067, 1.70672, 1.99235)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
-position = Vector2(144.5, 342.5)
-shape = SubResource("RectangleShape2D_sjdpv")
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 15.465, 0, 0, 0, 24.75, -5, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_tnxkw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_xba1f")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 15.465, 0, 0, 0, 24.75, 5, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_tnxkw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_xba1f")
