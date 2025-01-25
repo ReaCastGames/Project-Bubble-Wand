@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwhgqj7orp3f"]
+
+[ext_resource type="Script" path="res://src/PlayerControls.cs" id="1_ed5n5"]
+
+[sub_resource type="Gradient" id="Gradient_6h46l"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xwa1l"]
+gradient = SubResource("Gradient_6h46l")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an5wd"]
+size = Vector2(42, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjdpv"]
+size = Vector2(309, 1126)
+
+[node name="Controls" type="Node2D"]
+
+[node name="TestCharacter" type="CharacterBody2D" parent="."]
+position = Vector2(960, 858)
+script = ExtResource("1_ed5n5")
+speed = 250.0
+
+[node name="Sprite2D" type="Sprite2D" parent="TestCharacter"]
+position = Vector2(0, 19.75)
+scale = Vector2(0.164063, 40.5)
+texture = SubResource("GradientTexture1D_xwa1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestCharacter"]
+position = Vector2(0, 19.5)
+shape = SubResource("RectangleShape2D_an5wd")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(144.5, 553)
+shape = SubResource("RectangleShape2D_sjdpv")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(1643, 212)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(144.5, 342.5)
+shape = SubResource("RectangleShape2D_sjdpv")
