@@ -50,6 +50,7 @@ trim_trailing_whitespace = true
 [*.{cs,vb}]
 dotnet_diagnostic.IDE0055.severity = none
 dotnet_diagnostic.IDE1006.severity = none
+dotnet_diagnostic.IDE0007.severity = none # Like, how dare you...
 
 ##########################################
 # File Extension Settings
