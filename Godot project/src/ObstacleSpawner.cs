@@ -1,15 +1,21 @@
 using Godot;
 using System;
 
-public partial class ObstacleSpawner : Node3D
-{
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
+public partial class ObstacleSpawner : Node3D {
+
+	[Export]
+	private Timer timer;
+
+	public override void _Ready() {
+		timer = GetNode<Timer>("Timer");
+		timer.Timeout += SpawnObstacle;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+	private void SpawnObstacle() {
+		PackedScene obstacle = GD.Load<PackedScene>("res://src/Obstacle.tscn");
+		Node3D node = obstacle.Instantiate<Node3D>();
+		AddChild(node);
+		GD.Print("Spawn!");
 	}
+
 }

@@ -53,6 +53,9 @@ dotnet_diagnostic.IDE1006.severity = none
 dotnet_diagnostic.IDE0007.severity = none # Like, how dare you...
 dotnet_diagnostic.CA1050.severity = none
 dotnet_diagnostic.IDE0022.severity = none
+dotnet_diagnostic.IDE0027.severity = none
+dotnet_diagnostic.CS8601.severity = none
+dotnet_diagnostic.IDE0025.severity = none
 
 ##########################################
 # File Extension Settings
@@ -463,3 +466,6 @@ dotnet_diagnostic.RCS1161.severity = none
 dotnet_diagnostic.RCS1165.severity = none
 # Allow keyword-based names so that parameter names like `@event` can be used.
 dotnet_diagnostic.CA1716.severity = none
+
+# CA1805: Do not initialize unnecessarily
+dotnet_diagnostic.CA1805.severity = none

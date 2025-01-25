@@ -1,9 +1,22 @@
 [gd_scene load_steps=7 format=3 uid="uid://bb48tqf551nj4"]
 
-[ext_resource type="PackedScene" uid="uid://b58twb3a04u8p" path="res://src/Obstacle.tscn" id="1_b0cwv"]
-[ext_resource type="Script" path="res://src/ObstacleSpawner.cs" id="2_ew686"]
+[ext_resource type="PackedScene" uid="uid://mmlp2fbf7hib" path="res://src/ObstacleSpawner.tscn" id="1_7cpgl"]
+
+[sub_resource type="Sky" id="Sky_81smu"]
 
 [sub_resource type="Environment" id="Environment_hwwpv"]
+background_mode = 2
+sky = SubResource("Sky_81smu")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 0.647059, 1)
+fog_enabled = true
+fog_light_color = Color(0.3685, 0.4048, 0.55, 1)
+fog_density = 0.0311
+fog_sky_affect = 0.408
+fog_height_density = -2.2535
+fog_depth_curve = 0.366021
+fog_depth_begin = 0.0
+fog_depth_end = 488.9
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_htqki"]
 
@@ -20,14 +33,18 @@ environment = SubResource("Environment_hwwpv")
 camera_attributes = SubResource("CameraAttributesPractical_htqki")
 compositor = SubResource("Compositor_ujpm2")
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.882948, 0.469472, 0, -0.469472, 0.882948, 0, 7.589, 4.146)
+fov = 95.625
+
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("PlaneMesh_73nbv")
 
-[node name="Obstacle" parent="." instance=ExtResource("1_b0cwv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -5)
+[node name="ObstacleSpawner" parent="." instance=ExtResource("1_7cpgl")]
 
-[node name="ObstacleSpawner" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -500)
-script = ExtResource("2_ew686")
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -8)
+light_color = Color(0.693235, 0.847078, 0.760041, 1)
+light_energy = 7.319

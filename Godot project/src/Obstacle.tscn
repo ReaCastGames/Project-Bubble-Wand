@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b58twb3a04u8p"]
+[gd_scene load_steps=3 format=3 uid="uid://b58twb3a04u8p"]
+
+[ext_resource type="Script" path="res://src/Obstacle.cs" id="1_w44d6"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_bpow6"]
 
 [node name="Obstacle" type="Node3D"]
+script = ExtResource("1_w44d6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_bpow6")
