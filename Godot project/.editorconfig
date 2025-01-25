@@ -47,6 +47,10 @@ indent_size = 4
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[*.{cs,vb}]
+dotnet_diagnostic.IDE0055.severity = none
+dotnet_diagnostic.IDE1006.severity = none
+
 ##########################################
 # File Extension Settings
 ##########################################
