@@ -15,8 +15,6 @@ public partial class PlayerControls : CharacterBody3D {
 		float fDelta = (float)delta;
 		float horizontalDirection = Input.GetAxis("moveLeft", "moveRight");
 
-		GD.Print(horizontalDirection);
-
 		if (Input.IsActionJustPressed("jump")) {
 			// Jump.
 		}
