@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bb48tqf551nj4"]
+
+[ext_resource type="PackedScene" uid="uid://b58twb3a04u8p" path="res://src/Obstacle.tscn" id="1_b0cwv"]
+[ext_resource type="Script" path="res://src/ObstacleSpawner.cs" id="2_ew686"]
+
+[sub_resource type="Environment" id="Environment_hwwpv"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_htqki"]
+
+[sub_resource type="Compositor" id="Compositor_ujpm2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_73nbv"]
+size = Vector2(20, 500)
+center_offset = Vector3(0, 0, -250)
+
+[node name="GameScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hwwpv")
+camera_attributes = SubResource("CameraAttributesPractical_htqki")
+compositor = SubResource("Compositor_ujpm2")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_73nbv")
+
+[node name="Obstacle" parent="." instance=ExtResource("1_b0cwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -5)
+
+[node name="ObstacleSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -500)
+script = ExtResource("2_ew686")
