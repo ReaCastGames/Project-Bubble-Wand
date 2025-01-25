@@ -1,3 +1,13 @@
-# Godot 4+ specific ignores
+nupkg/
+
+coverage/*
+!coverage/.gdignore
+
 .godot/
-/android/
+bin/
+obj/
+.generated/
+.vs/
+.DS_Store
+
+*.translation
