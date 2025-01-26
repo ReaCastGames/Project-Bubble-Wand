@@ -1,13 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://bb48tqf551nj4"]
+[gd_scene load_steps=18 format=3 uid="uid://bb48tqf551nj4"]
 
 [ext_resource type="Script" path="res://src/GameScene/GameScene.cs" id="1_kjnf2"]
+[ext_resource type="AudioStream" uid="uid://dqbdjbvemhvt8" path="res://Audio/Music/Sidewalk.ogg" id="2_fq3y8"]
 [ext_resource type="PackedScene" uid="uid://b331vqr7aym7m" path="res://src/FlotsamSpawner/FlotsamSpawner.tscn" id="2_wyxan"]
 [ext_resource type="PackedScene" uid="uid://cbr4bjwuyjlgo" path="res://src/Flotsam/FlotsamItems/ObstacleItem.tscn" id="3_nh1eo"]
 [ext_resource type="PackedScene" uid="uid://cdhyrse0iapvc" path="res://src/Flotsam/FlotsamItems/Capsule/Capsule.tscn" id="3_rxo0v"]
 [ext_resource type="PackedScene" uid="uid://dhaf1phr7yqwa" path="res://src/Flotsam/FlotsamItems/CapsuleItem.tscn" id="4_bop00"]
 [ext_resource type="PackedScene" uid="uid://w3vlmb7ceiug" path="res://Models/Water.tscn" id="4_v83lb"]
 [ext_resource type="PackedScene" uid="uid://dn2i7q41k5oqb" path="res://Models/River.tscn" id="5_q45jm"]
-[ext_resource type="PackedScene" uid="uid://bbmi0xfb28xgq" path="res://src/player.tscn" id="5_vm2lf"]
+[ext_resource type="PackedScene" path="res://src/player.tscn" id="5_vm2lf"]
 [ext_resource type="PackedScene" uid="uid://ctrssm7dt02j1" path="res://src/Despawner/Despawner.tscn" id="8_3g6aa"]
 
 [sub_resource type="Sky" id="Sky_81smu"]
@@ -53,6 +54,13 @@ script = ExtResource("1_kjnf2")
 environment = SubResource("Environment_hwwpv")
 camera_attributes = SubResource("CameraAttributesPractical_htqki")
 compositor = SubResource("Compositor_ujpm2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fq3y8")
+volume_db = -10.0
+autoplay = true
+playback_type = 1
+parameters/looping = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 8, 0)
