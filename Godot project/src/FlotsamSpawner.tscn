@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" path="res://src/FlotsamSpawner.cs" id="1_sn6t4"]
 
-[node name="ObstacleSpawner" type="Node3D"]
+[node name="ObstacleSpawner" type="Node3D" node_paths=PackedStringArray("timer")]
 physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -15)
 script = ExtResource("1_sn6t4")
-flotsamVsCapsuleRatio = 0.5
+timer = NodePath("Timer")
+spawnDelay = 0.75
+flotsamVsCapsuleRatio = 0.4
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bjjbo621uohkd" path="res://Models/fish/Swordfish.glb" id="1_6mh6q"]
 
 [node name="Swordfish2" instance=ExtResource("1_6mh6q")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Fish_Armature" index="0"]
 bones/0/rotation = Quaternion(-0.706575, -0.027482, -0.0274776, 0.70657)

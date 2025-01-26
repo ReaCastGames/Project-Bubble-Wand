@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bb48tqf551nj4"]
+[gd_scene load_steps=13 format=3 uid="uid://bb48tqf551nj4"]
 
 [ext_resource type="Script" path="res://src/GameScene.cs" id="1_kjnf2"]
 [ext_resource type="PackedScene" uid="uid://b331vqr7aym7m" path="res://src/FlotsamSpawner.tscn" id="2_wyxan"]
-[ext_resource type="PackedScene" uid="uid://cdhyrse0iapvc" path="res://Models/Capsule.tscn" id="3_rxo0v"]
+[ext_resource type="PackedScene" uid="uid://cbr4bjwuyjlgo" path="res://src/Flotsam/ObstacleItem.tscn" id="3_nh1eo"]
+[ext_resource type="PackedScene" uid="uid://cdhyrse0iapvc" path="res://src/Capsule.tscn" id="3_rxo0v"]
+[ext_resource type="PackedScene" uid="uid://dhaf1phr7yqwa" path="res://src/Flotsam/CapsuleItem.tscn" id="4_bop00"]
 [ext_resource type="PackedScene" uid="uid://w3vlmb7ceiug" path="res://Models/Water.tscn" id="4_v83lb"]
 [ext_resource type="PackedScene" uid="uid://dn2i7q41k5oqb" path="res://Models/River.tscn" id="5_q45jm"]
 
@@ -54,10 +56,12 @@ light_energy = 0.0
 omni_range = 3.278
 
 [node name="Flotsam Spawner" parent="." instance=ExtResource("2_wyxan")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -50)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -100)
+obstacleScene = ExtResource("3_nh1eo")
+capsuleScene = ExtResource("4_bop00")
 
 [node name="Player Capsule" parent="." instance=ExtResource("3_rxo0v")]
-transform = Transform3D(0.956305, 0.292372, 0, -0.251916, 0.82398, 0.507538, 0.14839, -0.485361, 0.861629, 0, 0.755, -2)
+transform = Transform3D(0.974649, 0.0402082, 0.220099, -0.14962, 0.848539, 0.507538, -0.166356, -0.527603, 0.833043, 0, 0.5, -4)
 
 [node name="Water" parent="." instance=ExtResource("4_v83lb")]
 transform = Transform3D(-0.085, 0, 0, 0, 1, -2.09815e-08, 0, 8.74228e-08, 0.24, 1, 0, -56.509)

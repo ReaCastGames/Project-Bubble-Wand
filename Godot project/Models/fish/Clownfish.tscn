@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b4v4ds18rwrcx" path="res://Models/fish/Clownfish.glb" id="1_xihma"]
 
 [node name="Clownfish2" instance=ExtResource("1_xihma")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Fish_Armature" index="0"]
 bones/0/rotation = Quaternion(-0.706575, -0.027482, -0.0274776, 0.70657)

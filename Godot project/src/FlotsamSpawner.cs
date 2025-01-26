@@ -6,8 +6,8 @@ public partial class FlotsamSpawner : Node3D {
 	[Export]
 	private Timer timer;
 
-	[Export] private PackedScene obstacleScene;
-	[Export] private PackedScene capsuleScene;
+	[Export] private PackedScene obstacleScene = default!;
+	[Export] private PackedScene capsuleScene = default!;
 
 	[Export] private float spawnDelay = 0.5f; // This is how long to wait until spawning a new item.
 	[Export] private float flotsamVsCapsuleRatio = 0; // 0 is 100% flotsam, 1 is 100% capsules
@@ -22,9 +22,11 @@ public partial class FlotsamSpawner : Node3D {
 		float randomResult = GameScene.randomNumberGenerator.RandfRange(0, 1);
 		if (randomResult <= flotsamVsCapsuleRatio) {
 			AddChild(capsuleScene.Instantiate());
+			GD.Print("Capsule!");
 		}
 		else {
 			AddChild(obstacleScene.Instantiate());
+			GD.Print("Fish!");
 		}
 	}
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b58twb3a04u8p"]
+
+[ext_resource type="Script" path="res://src/Flotsam/FlotsamItem.cs" id="1_cikn7"]
+
+[node name="FlotsamItem" type="Node3D"]
+script = ExtResource("1_cikn7")
+riverWidth = 30.0
+travelSpeed = 8.0

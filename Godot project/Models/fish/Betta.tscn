@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dibsuwybhywpv" path="res://Models/fish/Betta.glb" id="1_d8g4h"]
 
 [node name="Betta2" instance=ExtResource("1_d8g4h")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Fish_Armature" index="0"]
 bones/0/rotation = Quaternion(-0.706575, -0.027482, -0.0274776, 0.70657)

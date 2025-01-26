@@ -4,8 +4,10 @@
 
 [resource]
 transparency = 1
-albedo_color = Color(1, 0, 0.933333, 0.466667)
+cull_mode = 2
+albedo_color = Color(0.856308, 0.524496, 0.639942, 0.235294)
 metallic = 1.0
+metallic_specular = 1.0
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.1
 emission_texture = ExtResource("1_qvxes")

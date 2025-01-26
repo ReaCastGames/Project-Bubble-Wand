@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhaf1phr7yqwa"]
+
+[ext_resource type="PackedScene" uid="uid://b58twb3a04u8p" path="res://src/Flotsam/FlotsamItem.tscn" id="1_5xpwm"]
+[ext_resource type="PackedScene" uid="uid://cdhyrse0iapvc" path="res://src/Capsule.tscn" id="2_xfqqu"]
+
+[node name="Capsule Item" instance=ExtResource("1_5xpwm")]
+
+[node name="Capsule" parent="." index="0" instance=ExtResource("2_xfqqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
