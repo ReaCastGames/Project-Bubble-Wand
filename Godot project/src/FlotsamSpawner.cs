@@ -1,10 +1,9 @@
 using Godot;
-using System;
 
 public partial class FlotsamSpawner : Node3D {
 
 	[Export]
-	private Timer timer;
+	private Timer timer = default!;
 
 	[Export] private PackedScene obstacleScene = default!;
 	[Export] private PackedScene capsuleScene = default!;
@@ -19,7 +18,7 @@ public partial class FlotsamSpawner : Node3D {
 	}
 
 	private void SpawnFlotsam() {
-		float randomResult = GameScene.randomNumberGenerator.RandfRange(0, 1);
+		float randomResult = GameScene.RandomNumberGenerator.RandfRange(0, 1);
 		if (randomResult <= flotsamVsCapsuleRatio) {
 			AddChild(capsuleScene.Instantiate());
 			GD.Print("Capsule!");

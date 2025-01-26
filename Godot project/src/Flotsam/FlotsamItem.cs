@@ -1,7 +1,6 @@
 using Godot;
-using System;
 
-public partial class FlotsamItem : Node3D {
+public partial class FlotsamItem : CharacterBody3D, IDespawn {
 
 	[Export]
 	public float riverWidth = 20;
@@ -11,7 +10,7 @@ public partial class FlotsamItem : Node3D {
 
 	public override void _Ready() {
 		// Start from a random X position;
-		Position = new(Position.X + (GameScene.randomNumberGenerator.RandfRange(-1, 1) * (riverWidth / 2)), Position.Y, Position.Z);
+		Position = new(Position.X + (GameScene.RandomNumberGenerator.RandfRange(-1, 1) * (riverWidth / 2)), Position.Y, Position.Z);
 	}
 
 	public override void _Process(double delta) {
