@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctwn0dh64l5tg"]
+[gd_scene load_steps=3 format=3 uid="uid://w3vlmb7ceiug"]
 
-[ext_resource type="Material" uid="uid://1d3njqm231td" path="res://Models/Water.tres" id="1_ssbao"]
+[ext_resource type="Material" uid="uid://bp7jbfxcq4hin" path="res://Models/Water.tres" id="1_ssbao"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_oc4nt"]
 size = Vector2(30, 30)

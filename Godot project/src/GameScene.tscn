@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://bb48tqf551nj4"]
+
+[ext_resource type="Script" path="res://src/GameScene.cs" id="1_kjnf2"]
+[ext_resource type="PackedScene" uid="uid://b331vqr7aym7m" path="res://src/FlotsamSpawner.tscn" id="2_wyxan"]
+[ext_resource type="PackedScene" uid="uid://cdhyrse0iapvc" path="res://Models/Capsule.tscn" id="3_rxo0v"]
+[ext_resource type="PackedScene" uid="uid://w3vlmb7ceiug" path="res://Models/Water.tscn" id="4_v83lb"]
+[ext_resource type="PackedScene" uid="uid://dn2i7q41k5oqb" path="res://Models/River.tscn" id="5_q45jm"]
+
+[sub_resource type="Sky" id="Sky_81smu"]
+
+[sub_resource type="Environment" id="Environment_hwwpv"]
+background_mode = 1
+background_color = Color(0.92, 0.7912, 0.84272, 1)
+sky = SubResource("Sky_81smu")
+ambient_light_source = 2
+ambient_light_color = Color(1, 0.88, 0.936, 1)
+ambient_light_energy = 4.0
+fog_enabled = true
+fog_light_color = Color(0.3685, 0.4048, 0.55, 1)
+fog_light_energy = 0.75
+fog_density = 0.04
+fog_sky_affect = 0.2
+fog_height_density = -0.2
+fog_depth_curve = 0.366021
+fog_depth_begin = 0.0
+fog_depth_end = 488.9
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_htqki"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 25.52
+dof_blur_far_transition = 60.0
+dof_blur_amount = 0.15
+
+[sub_resource type="Compositor" id="Compositor_ujpm2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2uc6b"]
+size = Vector2(30, 2)
+
+[node name="GameScene" type="Node3D"]
+script = ExtResource("1_kjnf2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hwwpv")
+camera_attributes = SubResource("CameraAttributesPractical_htqki")
+compositor = SubResource("Compositor_ujpm2")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 8, 0)
+fov = 120.0
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.707, -8)
+light_energy = 0.0
+omni_range = 3.278
+
+[node name="Flotsam Spawner" parent="." instance=ExtResource("2_wyxan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -50)
+
+[node name="Player Capsule" parent="." instance=ExtResource("3_rxo0v")]
+transform = Transform3D(0.956305, 0.292372, 0, -0.251916, 0.82398, 0.507538, 0.14839, -0.485361, 0.861629, 0, 0.755, -2)
+
+[node name="Water" parent="." instance=ExtResource("4_v83lb")]
+transform = Transform3D(-0.085, 0, 0, 0, 1, -2.09815e-08, 0, 8.74228e-08, 0.24, 1, 0, -56.509)
+
+[node name="River" parent="." instance=ExtResource("5_q45jm")]
+transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 0, -1.76758, 1)
+
+[node name="Measurement stick" type="Node3D" parent="."]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Measurement stick"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.45683)
+visible = false
+mesh = SubResource("PlaneMesh_2uc6b")

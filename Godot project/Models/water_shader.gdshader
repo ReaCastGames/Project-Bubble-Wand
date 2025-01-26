@@ -85,6 +85,5 @@ vec3 existingNormal = normalize(cross( dFdx(view_pos.xyz), dFdy(view_pos.xyz)));
 	vec4 color = alphaBlend(surfaceNoiseColor, waterColor);
 
   ALBEDO = color.rgb;
-
-	//ALPHA *= smoothstep(0.5, 0.25, distance(UV, vec2(0.5)));
+	ALPHA = color.a;
 }

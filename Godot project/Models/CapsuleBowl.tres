@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ch2lrg8gwe6cs"]
+
+[ext_resource type="Texture2D" uid="uid://dfy3fhj2qwdgm" path="res://Models/textures/Neon_Purple_Techni-Camo_01_BaseColor.jpg" id="1_qvxes"]
+
+[resource]
+transparency = 1
+albedo_color = Color(1, 0, 0.933333, 0.466667)
+metallic = 1.0
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.1
+emission_texture = ExtResource("1_qvxes")
