@@ -11,6 +11,7 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 	private float hangTime = 5;
 	private float hangTimer = 0;
 	private float randomX = 1;
+	private Vector3 rotationValue;
 
 	public override void _Ready() {
 		// Start from a random X position;
@@ -31,7 +32,7 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 					Stick(collidedNode);
 				}
 				else {
-					FlyAway(collidedNode);
+					FlyAway(collidedNode, fDelta);
 				}
 			}
 		}
@@ -39,11 +40,7 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 			var x = Position.X > 0 ? 1f : -1f;
 			RandomNumberGenerator random = new();
 			Velocity = new Vector3(x * 10 * fDelta * randomX , Mathf.Sin(hangTimer*2.5f) * fDelta * 20, -fDelta * 10);
-			Rotation = new(
-				Rotation.X + (random.Randf() * fDelta),
-				Rotation.Y + (random.Randf() * fDelta),
-				Rotation.Z + (random.Randf() * fDelta)
-			);
+			Rotation += rotationValue;
 			MoveAndCollide(Velocity);
 			hangTimer += fDelta;
 			if(hangTimer >= hangTime)
@@ -51,7 +48,7 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 		}
 	}
 
-	private void FlyAway(Node3D collidedNode) {
+	private void FlyAway(Node3D collidedNode, float fDelta) {
 		isFloating = false;
 
 		this.SetCollisionMaskValue(1, false);
@@ -61,6 +58,12 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 
 		RandomNumberGenerator random = new();
 		randomX = random.RandfRange(0.5f, 2.5f);
+		float range = 20;
+		rotationValue = new Vector3(
+			0,
+			random.RandfRange(-range, range) * fDelta,
+			random.RandfRange(-range, range) * fDelta
+			);
 
 		var controls = (PlayerControls)collidedNode;
 		controls.TakeDamage();
