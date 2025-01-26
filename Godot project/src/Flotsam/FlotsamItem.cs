@@ -36,8 +36,8 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 		}
 		else {
 			var x = Position.X > 0 ? 1f : -1f;
-			Velocity = new Vector3(x * 10 * fDelta, Mathf.Sin(hangTimer / 10f), -fDelta * 10);
 			RandomNumberGenerator random = new();
+			Velocity = new Vector3(x * 10 * fDelta * random.RandfRange(0.5f,2.5f) , Mathf.Sin(hangTimer*2.5f) * fDelta * 20, -fDelta * 10);
 			Rotation = new(
 				Rotation.X + (random.Randf() * fDelta),
 				Rotation.Y + (random.Randf() * fDelta),
