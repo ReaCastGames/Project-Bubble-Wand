@@ -16,14 +16,13 @@
 
 [node name="Controls" type="Node3D"]
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("scoreManager")]
+[node name="Player" type="CharacterBody3D" parent="."]
 collision_mask = 2
 axis_lock_linear_z = true
 script = ExtResource("1_ed5n5")
 speed = 5.0
 acceleration = 3.75
 brakeMultiplier = 2.0
-scoreManager = NodePath("../ScoreManager")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("SphereShape3D_7pvag")
