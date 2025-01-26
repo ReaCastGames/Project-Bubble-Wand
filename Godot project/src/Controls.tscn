@@ -65,7 +65,7 @@ process_mode = 4
 shape = SubResource("SphereShape3D_7pvag")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.893701, 0.448664, 0, -0.448664, 0.893701, 0, 1.64839, 3.50891)
+transform = Transform3D(1, 0, 0, 0, 0.893701, 0.448664, 0, -0.448664, 0.893701, 0, 2.659, 3.509)
 current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
