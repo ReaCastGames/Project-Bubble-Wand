@@ -35,7 +35,7 @@ public partial class PlayerControls : CharacterBody3D {
 		else {
 			var addition = horizontalDirection * acceleration * fDelta;
 			if ((horizontalDirection > 0 && horizontalVelocity < 0) ||
-			    (horizontalDirection < 0 && horizontalVelocity > 0)) {
+				(horizontalDirection < 0 && horizontalVelocity > 0)) {
 				addition *= brakeMultiplier;
 			}
 

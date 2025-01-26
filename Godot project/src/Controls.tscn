@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwhgqj7orp3f"]
+[gd_scene load_steps=6 format=3 uid="uid://deattsl48bcb5"]
 
 [ext_resource type="Script" path="res://src/PlayerControls.cs" id="1_ed5n5"]
 
@@ -17,8 +17,6 @@ axis_lock_linear_y = true
 axis_lock_linear_z = true
 script = ExtResource("1_ed5n5")
 speed = 5.0
-acceleration = 3.75
-brakeMultiplier = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("SphereShape3D_7pvag")

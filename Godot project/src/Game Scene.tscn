@@ -1,30 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb48tqf551nj4"]
+[gd_scene load_steps=8 format=3 uid="uid://bb48tqf551nj4"]
 
 [ext_resource type="PackedScene" uid="uid://mmlp2fbf7hib" path="res://src/ObstacleSpawner.tscn" id="1_7cpgl"]
+[ext_resource type="PackedScene" uid="uid://bwudvkqd0h01u" path="res://Models/capsule.blend" id="2_dh0a0"]
 
 [sub_resource type="Sky" id="Sky_81smu"]
 
 [sub_resource type="Environment" id="Environment_hwwpv"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.68, 0.51, 0.538333, 1)
 sky = SubResource("Sky_81smu")
 ambient_light_source = 2
-ambient_light_color = Color(1, 1, 0.647059, 1)
+ambient_light_color = Color(1, 0.88, 0.936, 1)
+ambient_light_energy = 1.5
 fog_enabled = true
 fog_light_color = Color(0.3685, 0.4048, 0.55, 1)
-fog_density = 0.0311
+fog_density = 0.03
 fog_sky_affect = 0.408
-fog_height_density = -2.2535
+fog_height_density = -1.0
 fog_depth_curve = 0.366021
 fog_depth_begin = 0.0
 fog_depth_end = 488.9
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_htqki"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 15.0
 
 [sub_resource type="Compositor" id="Compositor_ujpm2"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_73nbv"]
-size = Vector2(20, 500)
-center_offset = Vector3(0, 0, -250)
+size = Vector2(20, 200)
+center_offset = Vector3(0, 0, -100)
 
 [node name="GameScene" type="Node3D"]
 
@@ -43,8 +48,12 @@ fov = 95.625
 mesh = SubResource("PlaneMesh_73nbv")
 
 [node name="ObstacleSpawner" parent="." instance=ExtResource("1_7cpgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -50)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -8)
-light_color = Color(0.693235, 0.847078, 0.760041, 1)
-light_energy = 7.319
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.707, -8)
+light_energy = 0.0
+omni_range = 16.038
+
+[node name="capsule" parent="." instance=ExtResource("2_dh0a0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.673, -1.234)
