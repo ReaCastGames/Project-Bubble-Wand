@@ -2,17 +2,22 @@ using Godot;
 using System;
 
 public partial class PlayerControls : CharacterBody3D {
-
 	public static event Action? OnHit;
 	public static event Action? OnGainScore;
 
-	[Export]
-	public float speed, acceleration, brakeMultiplier;
+	[Export] public float speed, acceleration, brakeMultiplier;
 
 	public Vector3 rotation;
 
 	public override void _Ready() {
 		InputMap.LoadFromProjectSettings();
+	}
+
+	public override void _Notification(int what) {
+		if (what == NotificationPredelete) {
+			OnHit = null;
+			OnGainScore = null;
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame
@@ -40,7 +45,7 @@ public partial class PlayerControls : CharacterBody3D {
 		else {
 			var addition = horizontalDirection * acceleration * fDelta;
 			if ((horizontalDirection > 0 && horizontalVelocity < 0) ||
-				(horizontalDirection < 0 && horizontalVelocity > 0)) {
+			    (horizontalDirection < 0 && horizontalVelocity > 0)) {
 				addition *= brakeMultiplier;
 			}
 
