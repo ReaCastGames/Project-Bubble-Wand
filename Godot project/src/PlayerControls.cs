@@ -3,6 +3,9 @@ using System;
 
 public partial class PlayerControls : CharacterBody3D {
 
+	public static event Action OnHit;
+	public static event Action OnGainScore;
+
 	[Export]
 	public float speed, acceleration, brakeMultiplier;
 
@@ -19,6 +22,7 @@ public partial class PlayerControls : CharacterBody3D {
 
 		if (Input.IsActionJustPressed("jump")) {
 			// Jump.
+			OnHit?.Invoke();
 		}
 
 		if (Input.IsActionJustPressed("charge")) {
@@ -50,5 +54,9 @@ public partial class PlayerControls : CharacterBody3D {
 			Mathf.MoveToward(rotation.Z, 0, fDelta));
 		Rotation += rotation * fDelta;
 		MoveAndSlide();
+	}
+
+	public void GainScore() {
+		OnGainScore?.Invoke();
 	}
 }

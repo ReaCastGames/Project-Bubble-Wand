@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://deattsl48bcb5"]
+[gd_scene load_steps=10 format=3 uid="uid://cwhgqj7orp3f"]
 
 [ext_resource type="Script" path="res://src/PlayerControls.cs" id="1_ed5n5"]
 [ext_resource type="Script" path="res://src/Junk.cs" id="2_hwr5v"]
+[ext_resource type="PackedScene" uid="uid://blefcyts5r7wb" path="res://src/test_junk/junk_real.tscn" id="2_nhvxp"]
+[ext_resource type="Script" path="res://src/ScoreManager.cs" id="4_xq3xi"]
+[ext_resource type="Script" path="res://src/HealthManager.cs" id="5_lke4h"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7pvag"]
 
@@ -15,7 +18,6 @@
 
 [node name="Player" type="CharacterBody3D" parent="."]
 collision_mask = 2
-axis_lock_linear_y = true
 axis_lock_linear_z = true
 script = ExtResource("1_ed5n5")
 speed = 5.0
@@ -28,23 +30,8 @@ shape = SubResource("SphereShape3D_7pvag")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 mesh = SubResource("SphereMesh_dvwjo")
 
-[node name="Junk_Real" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.25)
-collision_layer = 2
-axis_lock_linear_y = true
-script = ExtResource("2_hwr5v")
-
-[node name="Area3D" type="Area3D" parent="Junk_Real"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Junk_Real/Area3D"]
-shape = SubResource("SphereShape3D_7pvag")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Junk_Real"]
-mesh = SubResource("SphereMesh_dvwjo")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Junk_Real"]
-process_mode = 4
-shape = SubResource("SphereShape3D_7pvag")
+[node name="Junk_Real" parent="." instance=ExtResource("2_nhvxp")]
+transform = Transform3D(0.991579, 0.129505, 0, -0.129505, 0.991579, 0, 0, 0, 1, 0, 0, -11.25)
 
 [node name="Junk_Real2" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26.25)
@@ -93,3 +80,27 @@ shape = SubResource("BoxShape3D_tnxkw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
 mesh = SubResource("BoxMesh_xba1f")
+
+[node name="ScoreManager" type="Node3D" parent="."]
+script = ExtResource("4_xq3xi")
+
+[node name="Canvas" type="Node2D" parent="ScoreManager"]
+
+[node name="ScoreLabel" type="Label" parent="ScoreManager/Canvas"]
+offset_right = 915.0
+offset_bottom = 244.0
+theme_override_font_sizes/font_size = 80
+text = "Score: 0"
+
+[node name="HealthManager" type="Node3D" parent="."]
+script = ExtResource("5_lke4h")
+
+[node name="Canvas" type="Node2D" parent="HealthManager"]
+
+[node name="HealthLabel" type="Label" parent="HealthManager/Canvas"]
+offset_left = 999.0
+offset_right = 1919.0
+offset_bottom = 244.0
+theme_override_font_sizes/font_size = 80
+text = "Health: 5"
+horizontal_alignment = 2
