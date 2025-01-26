@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctwn0dh64l5tg"]
+
+[ext_resource type="Material" uid="uid://1d3njqm231td" path="res://Models/Water.tres" id="1_ssbao"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oc4nt"]
+size = Vector2(30, 30)
+
+[node name="Water" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(15.7651, 0, 0, 0, 15.7651, 0, 0, 0, 15.7651, 0, 0, 0)
+mesh = SubResource("PlaneMesh_oc4nt")
+surface_material_override/0 = ExtResource("1_ssbao")
