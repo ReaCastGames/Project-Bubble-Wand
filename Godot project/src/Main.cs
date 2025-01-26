@@ -6,6 +6,7 @@ using Godot;
 #if DEBUG
 using System.Reflection;
 using Chickensoft.GoDotTest;
+using Chickensoft.GameTools.Environment;
 #endif
 
 // This entry-point file is responsible for determining if we should run tests.
@@ -16,6 +17,8 @@ using Chickensoft.GoDotTest;
 public partial class Main : Node2D {
 #if DEBUG
 	public TestEnvironment Environment = default!;
+
+	public const float THEME_SCALE = 4f;
 #endif
 
 	public override void _Ready() {
@@ -38,7 +41,11 @@ public partial class Main : Node2D {
 	  => _ = GoTest.RunTests(Assembly.GetExecutingAssembly(), this, Environment);
 #endif
 
-	private void RunScene()
-	  => GetTree().ChangeSceneToFile("res://src/GameScene.tscn");
+	private void RunScene() {
+		var window = GetWindow();
+		var scaleInfo = Display.GetWindowDpiScaleInfo(window, themeScale: 3);
+		window.ContentScaleFactor = scaleInfo.ContentScaleFactor;
+		GetTree().ChangeSceneToFile("res://src/SceneManager/SceneManager.tscn");
+	}
 }
 //+:cnd:noEmit

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcs65dj0wfa8o"]
+
+[ext_resource type="Texture2D" uid="uid://c0qjfj2uu828j" path="res://UI/buttons/button1.png" id="1_m5nhw"]
+[ext_resource type="Texture2D" uid="uid://cwqrws2tmu33u" path="res://UI/buttons/button1 click.png" id="2_blth3"]
+[ext_resource type="Texture2D" uid="uid://b36w63ymn5hbx" path="res://UI/buttons/button1 hover.png" id="3_fftow"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qxeda"]
+font_color = Color(1, 0.890667, 0.59, 1)
+
+[node name="TextureButton" type="TextureButton"]
+custom_minimum_size = Vector2(75, 36)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("1_m5nhw")
+texture_pressed = ExtResource("2_blth3")
+texture_hover = ExtResource("3_fftow")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "Text
+"
+label_settings = SubResource("LabelSettings_qxeda")
