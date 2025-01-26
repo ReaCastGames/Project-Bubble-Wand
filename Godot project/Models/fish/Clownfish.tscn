@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://de1gwcma311hd"]
+
+[ext_resource type="PackedScene" uid="uid://b4v4ds18rwrcx" path="res://Models/fish/Clownfish.glb" id="1_xihma"]
+
+[node name="Clownfish2" instance=ExtResource("1_xihma")]
+
+[node name="Skeleton3D" parent="Fish_Armature" index="0"]
+bones/0/rotation = Quaternion(-0.706575, -0.027482, -0.0274776, 0.70657)
+bones/1/rotation = Quaternion(-0.00848771, 0.0728575, -0.0260815, 0.996965)
+bones/2/rotation = Quaternion(-3.12201e-06, -3.12774e-06, -0.0199714, 0.999801)
+bones/3/rotation = Quaternion(-0.00798586, 0.000286665, -0.0294638, 0.999534)
+bones/4/rotation = Quaternion(0.00798678, -0.000202877, 0.0253941, 0.999646)
+bones/5/rotation = Quaternion(1.49898e-08, 2.07285e-08, 0.139616, 0.990206)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Swimming_Normal"
