@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b331vqr7aym7m"]
 
-[ext_resource type="Script" path="res://src/FlotsamSpawner.cs" id="1_sn6t4"]
+[ext_resource type="Script" path="res://src/FlotsamSpawner/FlotsamSpawner.cs" id="1_sn6t4"]
 
 [node name="ObstacleSpawner" type="Node3D" node_paths=PackedStringArray("timer")]
 physics_interpolation_mode = 2

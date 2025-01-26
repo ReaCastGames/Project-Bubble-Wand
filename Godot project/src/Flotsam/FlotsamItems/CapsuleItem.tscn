@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhaf1phr7yqwa"]
 
 [ext_resource type="PackedScene" uid="uid://b58twb3a04u8p" path="res://src/Flotsam/FlotsamItem.tscn" id="1_5xpwm"]
-[ext_resource type="PackedScene" uid="uid://cdhyrse0iapvc" path="res://src/Capsule.tscn" id="2_xfqqu"]
+[ext_resource type="PackedScene" uid="uid://cdhyrse0iapvc" path="res://src/Flotsam/FlotsamItems/Capsule/Capsule.tscn" id="2_xfqqu"]
 
 [node name="Capsule Item" instance=ExtResource("1_5xpwm")]
 

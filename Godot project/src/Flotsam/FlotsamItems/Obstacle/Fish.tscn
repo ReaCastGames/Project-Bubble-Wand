@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c3xdy8hypkm5i"]
 
-[ext_resource type="Script" path="res://src/Flotsam/Fish.cs" id="1_387lg"]
+[ext_resource type="Script" path="res://src/Flotsam/FlotsamItems/Obstacle/Fish.cs" id="1_387lg"]
 [ext_resource type="PackedScene" uid="uid://dlrr7gno6ah5n" path="res://Models/fish/Betta.tscn" id="2_5ltlw"]
 [ext_resource type="PackedScene" uid="uid://de1gwcma311hd" path="res://Models/fish/Clownfish.tscn" id="3_ow80u"]
 [ext_resource type="PackedScene" uid="uid://b3ek62dsp10n5" path="res://Models/fish/Puffer.tscn" id="4_ps1b0"]

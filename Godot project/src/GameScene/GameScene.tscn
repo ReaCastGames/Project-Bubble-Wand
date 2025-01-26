@@ -1,13 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://bb48tqf551nj4"]
 
-[ext_resource type="Script" path="res://src/GameScene.cs" id="1_kjnf2"]
-[ext_resource type="PackedScene" uid="uid://b331vqr7aym7m" path="res://src/FlotsamSpawner.tscn" id="2_wyxan"]
-[ext_resource type="PackedScene" uid="uid://cbr4bjwuyjlgo" path="res://src/Flotsam/ObstacleItem.tscn" id="3_nh1eo"]
-[ext_resource type="PackedScene" uid="uid://cdhyrse0iapvc" path="res://src/Capsule.tscn" id="3_rxo0v"]
-[ext_resource type="PackedScene" uid="uid://dhaf1phr7yqwa" path="res://src/Flotsam/CapsuleItem.tscn" id="4_bop00"]
+[ext_resource type="Script" path="res://src/GameScene/GameScene.cs" id="1_kjnf2"]
+[ext_resource type="PackedScene" uid="uid://b331vqr7aym7m" path="res://src/FlotsamSpawner/FlotsamSpawner.tscn" id="2_wyxan"]
+[ext_resource type="PackedScene" uid="uid://cbr4bjwuyjlgo" path="res://src/Flotsam/FlotsamItems/ObstacleItem.tscn" id="3_nh1eo"]
+[ext_resource type="PackedScene" uid="uid://cdhyrse0iapvc" path="res://src/Flotsam/FlotsamItems/Capsule/Capsule.tscn" id="3_rxo0v"]
+[ext_resource type="PackedScene" uid="uid://dhaf1phr7yqwa" path="res://src/Flotsam/FlotsamItems/CapsuleItem.tscn" id="4_bop00"]
 [ext_resource type="PackedScene" uid="uid://w3vlmb7ceiug" path="res://Models/Water.tscn" id="4_v83lb"]
 [ext_resource type="PackedScene" uid="uid://dn2i7q41k5oqb" path="res://Models/River.tscn" id="5_q45jm"]
-[ext_resource type="PackedScene" uid="uid://ctrssm7dt02j1" path="res://src/Despawner.tscn" id="8_3g6aa"]
+[ext_resource type="PackedScene" uid="uid://ctrssm7dt02j1" path="res://src/Despawner/Despawner.tscn" id="8_3g6aa"]
 
 [sub_resource type="Sky" id="Sky_81smu"]
 

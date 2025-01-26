@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ctrssm7dt02j1"]
 
-[ext_resource type="Script" path="res://src/Despawner.cs" id="1_55e0v"]
+[ext_resource type="Script" path="res://src/Despawner/Despawner.cs" id="1_55e0v"]
 
 [node name="Despawner" type="Area3D"]
 script = ExtResource("1_55e0v")
