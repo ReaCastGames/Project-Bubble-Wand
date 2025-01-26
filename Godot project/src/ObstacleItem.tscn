@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbr4bjwuyjlgo"]
+
+[ext_resource type="PackedScene" uid="uid://b58twb3a04u8p" path="res://src/FlotsamItem.tscn" id="1_jyo73"]
+
+[node name="Obstacle Item" instance=ExtResource("1_jyo73")]
