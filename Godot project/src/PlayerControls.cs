@@ -43,7 +43,7 @@ public partial class PlayerControls : CharacterBody3D {
 			horizontalVelocity = Math.Clamp(horizontalVelocity, -speed, speed);
 		}
 
-		Velocity = new Vector3(horizontalVelocity, 0, 0);
+		Velocity = new Vector3(horizontalVelocity, 0, speed);
 
 		MoveAndSlide();
 	}
