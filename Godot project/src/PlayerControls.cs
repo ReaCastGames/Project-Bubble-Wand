@@ -6,6 +6,8 @@ public partial class PlayerControls : CharacterBody3D {
 	[Export]
 	public float speed, acceleration, brakeMultiplier;
 
+	public Vector3 rotation;
+
 	public override void _Ready() {
 		InputMap.LoadFromProjectSettings();
 	}
@@ -44,7 +46,9 @@ public partial class PlayerControls : CharacterBody3D {
 		}
 
 		Velocity = new Vector3(horizontalVelocity, 0, speed);
-
+		rotation = new Vector3(Mathf.MoveToward(rotation.X, 0, fDelta), Mathf.MoveToward(rotation.Y, 0, fDelta),
+			Mathf.MoveToward(rotation.Z, 0, fDelta));
+		Rotation += rotation * fDelta;
 		MoveAndSlide();
 	}
 }
