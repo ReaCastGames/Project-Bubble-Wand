@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cwhgqj7orp3f"]
 
-[ext_resource type="Script" path="res://src/PlayerControls.cs" id="1_ed5n5"]
-[ext_resource type="Script" path="res://src/Junk.cs" id="2_hwr5v"]
+[ext_resource type="PackedScene" uid="uid://bbmi0xfb28xgq" path="res://src/player.tscn" id="1_54l7x"]
+[ext_resource type="Script" path="res://src/test_junk/Junk.cs" id="2_hwr5v"]
 [ext_resource type="PackedScene" uid="uid://blefcyts5r7wb" path="res://src/test_junk/junk_real.tscn" id="2_nhvxp"]
 [ext_resource type="Script" path="res://src/ScoreManager.cs" id="4_xq3xi"]
 [ext_resource type="Script" path="res://src/HealthManager.cs" id="5_lke4h"]
@@ -16,19 +16,7 @@
 
 [node name="Controls" type="Node3D"]
 
-[node name="Player" type="CharacterBody3D" parent="."]
-collision_mask = 2
-axis_lock_linear_z = true
-script = ExtResource("1_ed5n5")
-speed = 5.0
-acceleration = 3.75
-brakeMultiplier = 2.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("SphereShape3D_7pvag")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-mesh = SubResource("SphereMesh_dvwjo")
+[node name="Player" parent="." instance=ExtResource("1_54l7x")]
 
 [node name="Junk_Real" parent="." instance=ExtResource("2_nhvxp")]
 transform = Transform3D(0.991579, 0.129505, 0, -0.129505, 0.991579, 0, 0, 0, 1, 0, 0, -11.25)

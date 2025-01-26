@@ -50,10 +50,20 @@ public partial class PlayerControls : CharacterBody3D {
 		}
 
 		Velocity = new Vector3(horizontalVelocity, 0, speed);
-		rotation = new Vector3(Mathf.MoveToward(rotation.X, 0, fDelta), Mathf.MoveToward(rotation.Y, 0, fDelta),
-			Mathf.MoveToward(rotation.Z, 0, fDelta));
-		Rotation += rotation * fDelta;
+		Rotate(fDelta);
 		MoveAndSlide();
+	}
+
+	private void Rotate(float delta) {
+		// RandomNumberGenerator random = new();
+		// rotation += new Vector3(
+		// 	rotation.X + (random.Randf() * delta),
+		// 	rotation.Y + (random.Randf() * delta),
+		// 	rotation.Z + (random.Randf() * delta)
+		// );
+		rotation = new Vector3(Mathf.MoveToward(rotation.X, 0, delta), Mathf.MoveToward(rotation.Y, 0, delta),
+			Mathf.MoveToward(rotation.Z, 0, delta));
+		Rotation += rotation * delta;
 	}
 
 	public void GainScore() {

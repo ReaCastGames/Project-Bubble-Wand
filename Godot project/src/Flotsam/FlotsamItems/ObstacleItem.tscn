@@ -4,5 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c3xdy8hypkm5i" path="res://src/Flotsam/FlotsamItems/Obstacle/Fish.tscn" id="2_ir01w"]
 
 [node name="Obstacle Item" instance=ExtResource("1_jyo73")]
+collision_layer = 2
 
 [node name="Fishes" parent="." index="0" instance=ExtResource("2_ir01w")]

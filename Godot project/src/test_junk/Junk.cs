@@ -6,7 +6,6 @@ public partial class Junk : CharacterBody3D {
 	private double sinAmplitude = 0.5;
 
 	public override void _Ready() {
-		base._Ready();
 		var velocity = Vector3.Zero;
 		velocity.Z = 1;
 		Velocity = velocity;
