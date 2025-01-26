@@ -10,6 +10,7 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 	private bool isFloating = true;
 	private float hangTime = 5;
 	private float hangTimer = 0;
+	private float randomX = 1;
 
 	public override void _Ready() {
 		// Start from a random X position;
@@ -37,7 +38,7 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 		else {
 			var x = Position.X > 0 ? 1f : -1f;
 			RandomNumberGenerator random = new();
-			Velocity = new Vector3(x * 10 * fDelta * random.RandfRange(0.5f,2.5f) , Mathf.Sin(hangTimer*2.5f) * fDelta * 20, -fDelta * 10);
+			Velocity = new Vector3(x * 10 * fDelta * randomX , Mathf.Sin(hangTimer*2.5f) * fDelta * 20, -fDelta * 10);
 			Rotation = new(
 				Rotation.X + (random.Randf() * fDelta),
 				Rotation.Y + (random.Randf() * fDelta),
@@ -45,6 +46,8 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 			);
 			MoveAndCollide(Velocity);
 			hangTimer += fDelta;
+			if(hangTimer >= hangTime)
+				QueueFree();
 		}
 	}
 
@@ -55,6 +58,9 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 		this.SetCollisionLayerValue(2, false);
 		this.SetCollisionLayerValue(3, true);
 		GD.Print("Fly Away! " + this.Name);
+
+		RandomNumberGenerator random = new();
+		randomX = random.RandfRange(0.5f, 2.5f);
 
 		var controls = (PlayerControls)collidedNode;
 		controls.TakeDamage();
