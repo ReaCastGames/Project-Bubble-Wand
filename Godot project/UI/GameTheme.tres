@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://engco7posktg"]
+
+[ext_resource type="Texture2D" uid="uid://b36w63ymn5hbx" path="res://UI/buttons/button1 hover.png" id="1_0vf3w"]
+[ext_resource type="FontFile" uid="uid://b2a26p27pstqd" path="res://UI/fonts/Copyduck.ttf" id="1_3blmo"]
+[ext_resource type="Texture2D" uid="uid://c0qjfj2uu828j" path="res://UI/buttons/button1.png" id="2_e7mhn"]
+[ext_resource type="Texture2D" uid="uid://cwqrws2tmu33u" path="res://UI/buttons/button1 click.png" id="3_tayae"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bj5bc"]
+texture = ExtResource("1_0vf3w")
+texture_margin_left = 160.0
+texture_margin_top = 160.0
+texture_margin_right = 160.0
+texture_margin_bottom = 160.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r1w7r"]
+texture = ExtResource("2_e7mhn")
+texture_margin_left = 160.0
+texture_margin_top = 160.0
+texture_margin_right = 160.0
+texture_margin_bottom = 160.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ve0j"]
+texture = ExtResource("3_tayae")
+texture_margin_left = 160.0
+texture_margin_top = 160.0
+texture_margin_right = 160.0
+texture_margin_bottom = 160.0
+
+[resource]
+default_base_scale = 4.0
+default_font = ExtResource("1_3blmo")
+default_font_size = 128
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 0.725, 0.25, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_bj5bc")
+Button/styles/normal = SubResource("StyleBoxTexture_r1w7r")
+Button/styles/pressed = SubResource("StyleBoxTexture_7ve0j")

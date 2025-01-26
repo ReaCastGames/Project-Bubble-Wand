@@ -29,6 +29,7 @@
   <ItemGroup Condition=" '$(Configuration)' == 'Debug' or '$(Configuration)' == 'ExportDebug' ">
     <!-- Test dependencies go here! -->
     <!-- Dependencies added here will not be included in release builds. -->
+    <PackageReference Include="Chickensoft.GameTools" Version="1.0.2" />
     <PackageReference Include="Chickensoft.GoDotTest" Version="1.5.10" />
     <!-- Used to drive test scenes when testing visual code -->
     <PackageReference Include="Chickensoft.GodotTestDriver" Version="3.0.2" />

@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0wbg1wftuu55"]
+
+[ext_resource type="Script" path="res://src/MainMenu/MainMenu.cs" id="1_5soyn"]
+[ext_resource type="Texture2D" uid="uid://hqkooeduup2y" path="res://UI/graphics/title.png" id="1_hepxh"]
+
+[sub_resource type="Animation" id="Animation_7b4bu"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_kxcvo"]
+resource_name = "title_float"
+length = 1.5
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jhhg2"]
+_data = {
+"RESET": SubResource("Animation_7b4bu"),
+"title_float": SubResource("Animation_kxcvo")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5soyn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_hepxh")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jhhg2")
+}
+autoplay = "title_float"

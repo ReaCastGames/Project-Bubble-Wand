@@ -27,6 +27,11 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Chickensoft.GodotGame"
 
+[gui]
+
+theme/custom="res://UI/GameTheme.tres"
+theme/custom_font="res://UI/fonts/Copyduck.ttf"
+
 [input]
 
 moveLeft={
