@@ -1,10 +1,8 @@
 using Godot;
-using System;
 
-public partial class HealthManager : Node
-{
+public partial class HealthManager : Node {
 	private int health = 5;
-	private Label healthLabel;
+	private Label healthLabel = default!;
 
 	public override void _Ready() {
 		healthLabel = GetNode<Label>("Canvas/HealthLabel");

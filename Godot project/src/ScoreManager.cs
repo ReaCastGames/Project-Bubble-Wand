@@ -1,10 +1,8 @@
 using Godot;
-using System;
 
-public partial class ScoreManager : Node
-{
+public partial class ScoreManager : Node {
 	private int score = 0;
-	private Label scoreLabel;
+	private Label scoreLabel = default!;
 
 	public override void _Ready() {
 		scoreLabel = GetNode<Label>("Canvas/ScoreLabel");

@@ -3,8 +3,8 @@ using System;
 
 public partial class PlayerControls : CharacterBody3D {
 
-	public static event Action OnHit;
-	public static event Action OnGainScore;
+	public static event Action? OnHit;
+	public static event Action? OnGainScore;
 
 	[Export]
 	public float speed, acceleration, brakeMultiplier;

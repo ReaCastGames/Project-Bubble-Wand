@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bb48tqf551nj4"]
+[gd_scene load_steps=15 format=3 uid="uid://bb48tqf551nj4"]
 
 [ext_resource type="Script" path="res://src/GameScene.cs" id="1_kjnf2"]
 [ext_resource type="PackedScene" uid="uid://b331vqr7aym7m" path="res://src/FlotsamSpawner.tscn" id="2_wyxan"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhaf1phr7yqwa" path="res://src/Flotsam/CapsuleItem.tscn" id="4_bop00"]
 [ext_resource type="PackedScene" uid="uid://w3vlmb7ceiug" path="res://Models/Water.tscn" id="4_v83lb"]
 [ext_resource type="PackedScene" uid="uid://dn2i7q41k5oqb" path="res://Models/River.tscn" id="5_q45jm"]
+[ext_resource type="PackedScene" uid="uid://ctrssm7dt02j1" path="res://src/Despawner.tscn" id="8_3g6aa"]
 
 [sub_resource type="Sky" id="Sky_81smu"]
 
@@ -29,7 +30,7 @@ fog_depth_end = 488.9
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_htqki"]
 dof_blur_far_enabled = true
-dof_blur_far_distance = 25.52
+dof_blur_far_distance = 83.95
 dof_blur_far_transition = 60.0
 dof_blur_amount = 0.15
 
@@ -37,6 +38,9 @@ dof_blur_amount = 0.15
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2uc6b"]
 size = Vector2(30, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jilnn"]
+size = Vector3(61.6318, 29.0917, 15.4191)
 
 [node name="GameScene" type="Node3D"]
 script = ExtResource("1_kjnf2")
@@ -76,3 +80,10 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.45683)
 visible = false
 mesh = SubResource("PlaneMesh_2uc6b")
+
+[node name="Despawner" parent="." instance=ExtResource("8_3g6aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.60507)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Despawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.552917, 1.66104, 8.37341)
+shape = SubResource("BoxShape3D_jilnn")

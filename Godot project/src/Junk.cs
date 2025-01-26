@@ -15,20 +15,19 @@ public partial class Junk : CharacterBody3D {
 
 	public override void _PhysicsProcess(double delta) {
 		var velocity = new Vector3(0, 0, (float)(5 * delta));
-		this.Position = new Vector3(
-			this.Position.X,
-			(float)(Math.Sin(this.Position.Z + sinOffset) * sinAmplitude),
-			this.Position.Z);
+		Position = new Vector3(
+			Position.X,
+			(float)(Math.Sin(Position.Z + sinOffset) * sinAmplitude),
+			Position.Z
+		);
 
 		var collision = MoveAndCollide(velocity);
 
 		if (collision != null) {
 			var collidedNode = (Node3D)collision.GetCollider();
-			var relativePosition = this.GlobalPosition - collidedNode.GlobalPosition;
+			var relativePosition = GlobalPosition - collidedNode.GlobalPosition;
 
-			if (this.GetParent() != null) {
-				this.GetParent().RemoveChild(this);
-			}
+			GetParent()?.RemoveChild(this);
 
 			var propResource = GD.Load<PackedScene>("res://src/test_junk/junk_prop.tscn");
 			var prop = (Node3D)propResource.Instantiate();
@@ -60,11 +59,11 @@ public partial class Junk : CharacterBody3D {
 			}
 
 			// apply rotation
-			var controls = collidedNode as PlayerControls;
+			var controls = (PlayerControls)collidedNode;
 			controls.rotation += rotation * (1 - Vector3.Forward.Dot(relativePosition) + 5);
 			controls.GainScore();
 
-			this.QueueFree();
+			QueueFree();
 		}
 	}
 }
