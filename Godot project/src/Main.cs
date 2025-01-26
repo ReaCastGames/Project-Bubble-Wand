@@ -50,7 +50,7 @@ public partial class Main : Node2D {
 
 		if (Features.OperatingSystem == OSFamily.Windows && Mathf.IsEqualApprox(godotScaleFactor, 1f)) {
 			var screenSize = DisplayServer.ScreenGetSize(window.CurrentScreen);
-			var projectDesignSize = new Vector2I(3840, 2160);
+			var projectDesignSize = new Vector2I(3840, 2160) * 2;
 
 			window.ContentScaleFactor = Mathf.Min(
 				(float)screenSize.X / projectDesignSize.X,
