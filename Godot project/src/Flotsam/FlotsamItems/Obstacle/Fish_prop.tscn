@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cek6vr8ucgs13"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lffl2"]
+
+[node name="FishProp" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("SphereShape3D_lffl2")

@@ -21,11 +21,9 @@ public partial class FlotsamSpawner : Node3D {
 		float randomResult = GameScene.RandomNumberGenerator.RandfRange(0, 1);
 		if (randomResult <= flotsamVsCapsuleRatio) {
 			AddChild(capsuleScene.Instantiate());
-			GD.Print("Capsule!");
 		}
 		else {
 			AddChild(obstacleScene.Instantiate());
-			GD.Print("Fish!");
 		}
 	}
 

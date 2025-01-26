@@ -22,7 +22,6 @@ public partial class PlayerControls : CharacterBody3D {
 
 		if (Input.IsActionJustPressed("jump")) {
 			// Jump.
-			OnHit?.Invoke();
 		}
 
 		if (Input.IsActionJustPressed("charge")) {
@@ -68,5 +67,9 @@ public partial class PlayerControls : CharacterBody3D {
 
 	public void GainScore() {
 		OnGainScore?.Invoke();
+	}
+
+	public void TakeDamage() {
+		OnHit?.Invoke();
 	}
 }

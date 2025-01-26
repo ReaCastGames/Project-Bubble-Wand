@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bb48tqf551nj4"]
+[gd_scene load_steps=17 format=3 uid="uid://bb48tqf551nj4"]
 
 [ext_resource type="Script" path="res://src/GameScene/GameScene.cs" id="1_kjnf2"]
 [ext_resource type="PackedScene" uid="uid://b331vqr7aym7m" path="res://src/FlotsamSpawner/FlotsamSpawner.tscn" id="2_wyxan"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dn2i7q41k5oqb" path="res://Models/River.tscn" id="5_q45jm"]
 [ext_resource type="PackedScene" uid="uid://bbmi0xfb28xgq" path="res://src/player.tscn" id="5_vm2lf"]
 [ext_resource type="PackedScene" uid="uid://ctrssm7dt02j1" path="res://src/Despawner/Despawner.tscn" id="8_3g6aa"]
-[ext_resource type="PackedScene" uid="uid://blefcyts5r7wb" path="res://src/test_junk/junk_real.tscn" id="9_1w13f"]
 
 [sub_resource type="Sky" id="Sky_81smu"]
 
@@ -68,7 +67,6 @@ omni_range = 3.278
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -100)
 obstacleScene = ExtResource("3_nh1eo")
 capsuleScene = ExtResource("4_bop00")
-flotsamVsCapsuleRatio = 1.0
 
 [node name="Player" parent="." instance=ExtResource("5_vm2lf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.452243, -4.05192)
@@ -93,9 +91,6 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.45683)
 visible = false
 mesh = SubResource("PlaneMesh_2uc6b")
-
-[node name="Junk_Real" parent="." instance=ExtResource("9_1w13f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.9102)
 
 [node name="Despawner" parent="." instance=ExtResource("8_3g6aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.60507)
