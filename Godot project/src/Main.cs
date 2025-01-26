@@ -44,7 +44,23 @@ public partial class Main : Node2D {
 	private void RunScene() {
 		var window = GetWindow();
 		var scaleInfo = Display.GetWindowDpiScaleInfo(window, themeScale: 3);
-		window.ContentScaleFactor = scaleInfo.ContentScaleFactor;
+
+
+		var godotScaleFactor = DisplayServer.ScreenGetScale(window.CurrentScreen);
+
+		if (Features.OperatingSystem == OSFamily.Windows && Mathf.IsEqualApprox(godotScaleFactor, 1f)) {
+			var screenSize = DisplayServer.ScreenGetSize(window.CurrentScreen);
+			var projectDesignSize = new Vector2I(3840, 2160);
+
+			window.ContentScaleFactor = Mathf.Min(
+				(float)screenSize.X / projectDesignSize.X,
+				(float)screenSize.Y / projectDesignSize.Y
+			);
+		}
+		else {
+			window.ContentScaleFactor = scaleInfo.ContentScaleFactor;
+		}
+
 		GetTree().ChangeSceneToFile("res://src/SceneManager/SceneManager.tscn");
 	}
 }
