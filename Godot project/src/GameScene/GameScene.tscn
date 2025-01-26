@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bb48tqf551nj4"]
+[gd_scene load_steps=17 format=3 uid="uid://bb48tqf551nj4"]
 
 [ext_resource type="Script" path="res://src/GameScene/GameScene.cs" id="1_kjnf2"]
 [ext_resource type="PackedScene" uid="uid://b331vqr7aym7m" path="res://src/FlotsamSpawner/FlotsamSpawner.tscn" id="2_wyxan"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhaf1phr7yqwa" path="res://src/Flotsam/FlotsamItems/CapsuleItem.tscn" id="4_bop00"]
 [ext_resource type="PackedScene" uid="uid://w3vlmb7ceiug" path="res://Models/Water.tscn" id="4_v83lb"]
 [ext_resource type="PackedScene" uid="uid://dn2i7q41k5oqb" path="res://Models/River.tscn" id="5_q45jm"]
+[ext_resource type="PackedScene" uid="uid://bbmi0xfb28xgq" path="res://src/player.tscn" id="5_vm2lf"]
 [ext_resource type="PackedScene" uid="uid://ctrssm7dt02j1" path="res://src/Despawner/Despawner.tscn" id="8_3g6aa"]
 
 [sub_resource type="Sky" id="Sky_81smu"]
@@ -42,6 +43,9 @@ size = Vector2(30, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_jilnn"]
 size = Vector3(61.6318, 29.0917, 15.4191)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8ifx"]
+size = Vector3(18.6699, 51.2922, 58.0983)
+
 [node name="GameScene" type="Node3D"]
 script = ExtResource("1_kjnf2")
 
@@ -64,8 +68,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -100)
 obstacleScene = ExtResource("3_nh1eo")
 capsuleScene = ExtResource("4_bop00")
 
-[node name="Player Capsule" parent="." instance=ExtResource("3_rxo0v")]
-transform = Transform3D(0.974649, 0.0402082, 0.220099, -0.14962, 0.848539, 0.507538, -0.166356, -0.527603, 0.833043, 0, 0.5, -4)
+[node name="Player" parent="." instance=ExtResource("5_vm2lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.452243, -4.05192)
+speed = 7.5
+acceleration = 10.0
+brakeMultiplier = 1.5
+
+[node name="Player Capsule" parent="Player" instance=ExtResource("3_rxo0v")]
+transform = Transform3D(0.974649, 0.0402082, 0.220099, -0.14962, 0.848539, 0.507538, -0.166356, -0.527603, 0.833043, 0, 0.0477568, 0.0519238)
+script = null
 
 [node name="Water" parent="." instance=ExtResource("4_v83lb")]
 transform = Transform3D(-0.085, 0, 0, 0, 1, -2.09815e-08, 0, 8.74228e-08, 0.24, 1, 0, -56.509)
@@ -87,3 +98,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.60507)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Despawner"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.552917, 1.66104, 8.37341)
 shape = SubResource("BoxShape3D_jilnn")
+
+[node name="WallLeft" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.83496, -14.7355, -15.0656)
+shape = SubResource("BoxShape3D_u8ifx")
+
+[node name="WallRight" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.835, -14.735, -15.066)
+shape = SubResource("BoxShape3D_u8ifx")

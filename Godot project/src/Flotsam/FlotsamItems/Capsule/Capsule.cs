@@ -2,8 +2,7 @@ using Godot;
 
 public partial class Capsule : Node3D {
 
-	public override void _Ready() {
-	}
+	[Export] public PackedScene[] itemMeshes;
 
 	public override void _Process(double delta) {
 		RandomNumberGenerator random = new();

@@ -4,6 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://cdhyrse0iapvc" path="res://src/Flotsam/FlotsamItems/Capsule/Capsule.tscn" id="2_xfqqu"]
 
 [node name="Capsule Item" instance=ExtResource("1_5xpwm")]
+collision_layer = 2
+sticky = true
 
 [node name="Capsule" parent="." index="0" instance=ExtResource("2_xfqqu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
+[node name="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.353445, 0)
