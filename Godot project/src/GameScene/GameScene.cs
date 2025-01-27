@@ -9,6 +9,7 @@ public partial class GameScene : Node3D {
 	public const int HEALTH_DEFAULT = 5;
 
 	public int Health { get; set; } = HEALTH_DEFAULT;
+	public int Score { get; set; }
 
 	[Export] public AudioStreamPlayer audioStreamPlayerSFX = default!;
 	[Export] public AudioStreamPlayer audioStreamPlayerMusic = default!;
@@ -50,6 +51,8 @@ public partial class GameScene : Node3D {
 	}
 
 	public void OnPlayerGainScore() {
+		Score++;
+		HUD.ShowScore(Score);
 		audioStreamPlayerSFX.Stream = capsuleAttachSFX;
 		audioStreamPlayerSFX.Play();
 	}
