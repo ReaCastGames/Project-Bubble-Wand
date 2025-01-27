@@ -43,7 +43,7 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 		else {
 			var x = Position.X > 0 ? 1f : -1f;
 			RandomNumberGenerator random = new();
-			Velocity = new Vector3(x * 10 * fDelta * randomX , Mathf.Sin(hangTimer*2.5f) * fDelta * 20, -fDelta * 10);
+			Velocity = new Vector3(x * 10 * fDelta * randomX, Mathf.Sin(hangTimer * 2.5f) * fDelta * 20, -fDelta * 10);
 			Rotation += rotationValue;
 			MoveAndCollide(Velocity);
 			hangTimer += fDelta;
@@ -71,6 +71,7 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 
 		var controls = (PlayerControls)collidedNode;
 		controls.TakeDamage();
+		PlayCollisionAudio();
 	}
 
 	private void Stick(Node3D collidedNode) {
@@ -127,7 +128,6 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 		controls.GainScore();
 
 		QueueFree();
-		PlayCollisionAudio();
 	}
 
 	private void PlayCollisionAudio() {
