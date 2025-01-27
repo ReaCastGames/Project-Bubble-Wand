@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqaiseh2s52xa"]
+
+[ext_resource type="Script" path="res://src/GameOverMenu/GameOverMenu.cs" id="1_3cjq0"]
+[ext_resource type="Texture2D" uid="uid://ultq3mw556uv" path="res://UI/graphics/backdrop.png" id="1_bxe4p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5l3b"]
+font_size = 256
+
+[node name="GameOverMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3cjq0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.78107
+offset_right = 1.78101
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bxe4p")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.611765)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -313.5
+offset_right = 313.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_k5l3b")
+
+[node name="MainMenuButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Main Menu"
