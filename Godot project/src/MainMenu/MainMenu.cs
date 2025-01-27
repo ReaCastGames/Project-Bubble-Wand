@@ -8,7 +8,7 @@ public partial class MainMenu : Control {
 
 	public Action? Play;
 
-	public override void _Ready() {
+	public override void _EnterTree() {
 		PlayButton = GetNode<Button>("%PlayButton");
 		QuitButton = GetNode<Button>("%QuitButton");
 
@@ -16,6 +16,10 @@ public partial class MainMenu : Control {
 		QuitButton.Pressed += OnQuit;
 	}
 
+	public override void _ExitTree() {
+		PlayButton.Pressed -= OnPlay;
+		QuitButton.Pressed -= OnQuit;
+	}
 	public void OnPlay() => Play?.Invoke();
 
 	public void OnQuit() {
