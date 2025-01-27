@@ -2,13 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://bwudvkqd0h01u" path="res://Models/capsule.blend" id="1_5g5gf"]
 [ext_resource type="Script" path="res://src/Flotsam/FlotsamItems/Capsule/Capsule.cs" id="2_4hpe7"]
-[ext_resource type="Material" path="res://Models/CapsuleCap.tres" id="2_hlcmu"]
+[ext_resource type="Material" uid="uid://bvhids0wf0ck7" path="res://Models/CapsuleCap.tres" id="2_hlcmu"]
 [ext_resource type="Material" uid="uid://ch2lrg8gwe6cs" path="res://Models/CapsuleBowl.tres" id="3_hdkru"]
 
-[node name="capsule" instance=ExtResource("1_5g5gf")]
+[node name="capsule" node_paths=PackedStringArray("cap") instance=ExtResource("1_5g5gf")]
 script = ExtResource("2_4hpe7")
+cap = NodePath("Sphere")
 
 [node name="Sphere" parent="." index="0"]
+unique_name_in_owner = true
 surface_material_override/0 = ExtResource("2_hlcmu")
 
 [node name="Sphere_001" parent="." index="1"]
