@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://qm34r4wbwrvh"]
+
+[ext_resource type="Script" path="res://src/HUD/HUDParts/Lives.cs" id="1_vacrh"]
+
+[node name="Lives" type="HBoxContainer"]
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+script = ExtResource("1_vacrh")

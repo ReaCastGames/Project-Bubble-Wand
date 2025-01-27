@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dn2i7q41k5oqb" path="res://Models/River.tscn" id="5_q45jm"]
 [ext_resource type="PackedScene" path="res://src/player.tscn" id="5_vm2lf"]
 [ext_resource type="PackedScene" uid="uid://ctrssm7dt02j1" path="res://src/Despawner/Despawner.tscn" id="8_3g6aa"]
+[ext_resource type="PackedScene" uid="uid://djk2icgfoe5lv" path="res://src/HUD/HUD.tscn" id="10_vdeuv"]
 
 [sub_resource type="Sky" id="Sky_81smu"]
 
@@ -122,3 +123,6 @@ collision_layer = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallRight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.835, -14.735, -15.066)
 shape = SubResource("BoxShape3D_u8ifx")
+
+[node name="Hud" parent="." instance=ExtResource("10_vdeuv")]
+unique_name_in_owner = true
