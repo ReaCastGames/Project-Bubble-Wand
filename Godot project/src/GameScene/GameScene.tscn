@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bb48tqf551nj4"]
+[gd_scene load_steps=20 format=3 uid="uid://bb48tqf551nj4"]
 
 [ext_resource type="Script" path="res://src/GameScene/GameScene.cs" id="1_kjnf2"]
 [ext_resource type="AudioStream" uid="uid://dqbdjbvemhvt8" path="res://Audio/Music/Sidewalk.ogg" id="2_fq3y8"]
@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dhaf1phr7yqwa" path="res://src/Flotsam/FlotsamItems/CapsuleItem.tscn" id="4_bop00"]
 [ext_resource type="PackedScene" uid="uid://w3vlmb7ceiug" path="res://Models/Water.tscn" id="4_v83lb"]
 [ext_resource type="PackedScene" uid="uid://dn2i7q41k5oqb" path="res://Models/River.tscn" id="5_q45jm"]
-[ext_resource type="PackedScene" path="res://src/player.tscn" id="5_vm2lf"]
+[ext_resource type="PackedScene" uid="uid://bbmi0xfb28xgq" path="res://src/player.tscn" id="5_vm2lf"]
 [ext_resource type="PackedScene" uid="uid://ctrssm7dt02j1" path="res://src/Despawner/Despawner.tscn" id="8_3g6aa"]
+[ext_resource type="PackedScene" uid="uid://cr3mbr68ljld3" path="res://Sprites/blackholewhole.tscn" id="8_fv0yb"]
 [ext_resource type="PackedScene" uid="uid://djk2icgfoe5lv" path="res://src/HUD/HUD.tscn" id="10_vdeuv"]
 
 [sub_resource type="Sky" id="Sky_81smu"]
@@ -86,6 +87,9 @@ brakeMultiplier = 1.5
 [node name="Player Capsule" parent="Player" instance=ExtResource("3_rxo0v")]
 transform = Transform3D(0.974649, 0.0402082, 0.220099, -0.14962, 0.848539, 0.507538, -0.166356, -0.527603, 0.833043, 0, 0.0477568, 0.0519238)
 script = null
+
+[node name="Toy" parent="Player/Player Capsule" instance=ExtResource("8_fv0yb")]
+transform = Transform3D(1, -7.45058e-09, -2.98023e-08, 1.49012e-08, 1, -5.96046e-08, 1.49012e-08, -2.98023e-08, 1, -0.0105713, -0.0201335, 0.0951426)
 
 [node name="Water" parent="." instance=ExtResource("4_v83lb")]
 transform = Transform3D(-0.085, 0, 0, 0, 1, -2.09815e-08, 0, 8.74228e-08, 0.24, 1, 0, -56.509)
