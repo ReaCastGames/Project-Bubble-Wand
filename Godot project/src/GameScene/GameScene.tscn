@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dhaf1phr7yqwa" path="res://src/Flotsam/FlotsamItems/CapsuleItem.tscn" id="4_bop00"]
 [ext_resource type="PackedScene" uid="uid://w3vlmb7ceiug" path="res://Models/Water.tscn" id="4_v83lb"]
 [ext_resource type="PackedScene" uid="uid://dn2i7q41k5oqb" path="res://Models/River.tscn" id="5_q45jm"]
-[ext_resource type="PackedScene" uid="uid://bbmi0xfb28xgq" path="res://src/player.tscn" id="5_vm2lf"]
+[ext_resource type="PackedScene" uid="uid://bsjvqt8qcb8s5" path="res://src/player.tscn" id="5_vm2lf"]
 [ext_resource type="PackedScene" uid="uid://ctrssm7dt02j1" path="res://src/Despawner/Despawner.tscn" id="8_3g6aa"]
-[ext_resource type="PackedScene" uid="uid://cr3mbr68ljld3" path="res://Sprites/blackholewhole.tscn" id="8_fv0yb"]
+[ext_resource type="PackedScene" path="res://Sprites/blackholewhole.tscn" id="8_fv0yb"]
 [ext_resource type="PackedScene" uid="uid://djk2icgfoe5lv" path="res://src/HUD/HUD.tscn" id="10_vdeuv"]
 
 [sub_resource type="Sky" id="Sky_81smu"]
