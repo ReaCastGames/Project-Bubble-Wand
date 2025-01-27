@@ -1,14 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhaf1phr7yqwa"]
+[gd_scene load_steps=17 format=3 uid="uid://dhaf1phr7yqwa"]
 
 [ext_resource type="PackedScene" uid="uid://b58twb3a04u8p" path="res://src/Flotsam/FlotsamItem.tscn" id="1_5xpwm"]
 [ext_resource type="PackedScene" uid="uid://cdhyrse0iapvc" path="res://src/Flotsam/FlotsamItems/Capsule/Capsule.tscn" id="2_xfqqu"]
+[ext_resource type="PackedScene" uid="uid://ccgjwbirgxks2" path="res://Sprites/alien.tscn" id="3_ln3gk"]
+[ext_resource type="PackedScene" uid="uid://c13aw4mh7nc03" path="res://Sprites/fingerpuppet.tscn" id="4_4dvnk"]
+[ext_resource type="PackedScene" uid="uid://tsfpokxh353a" path="res://Sprites/goldfish.tscn" id="5_xrxmm"]
+[ext_resource type="PackedScene" uid="uid://dahl5n1itx5of" path="res://Sprites/hairclip.tscn" id="6_tkgrj"]
+[ext_resource type="PackedScene" uid="uid://cw5n47mp5o5g7" path="res://Sprites/hamster.tscn" id="7_bth8u"]
+[ext_resource type="PackedScene" uid="uid://cicpfrqsg710k" path="res://Sprites/lipgloss.tscn" id="8_qlbwo"]
+[ext_resource type="PackedScene" uid="uid://0qofq0dqqko2" path="res://Sprites/notcarebear.tscn" id="9_i1tm1"]
+[ext_resource type="PackedScene" uid="uid://krumd6pb524j" path="res://Sprites/notfurby.tscn" id="10_3hlo0"]
+[ext_resource type="PackedScene" uid="uid://bcrddctddjwqm" path="res://Sprites/notlittlestpetshop.tscn" id="11_usvc6"]
+[ext_resource type="PackedScene" uid="uid://bu4h87yje5y5c" path="res://Sprites/notmylittlepony.tscn" id="12_151xs"]
+[ext_resource type="PackedScene" uid="uid://dqhsthy0wk5i" path="res://Sprites/notpikachu.tscn" id="13_h14cg"]
+[ext_resource type="PackedScene" uid="uid://c0c3sshylxx7a" path="res://Sprites/nottamagucci.tscn" id="14_s8kvx"]
+[ext_resource type="PackedScene" uid="uid://ckf3dv5v8qbqb" path="res://Sprites/ringpop.tscn" id="15_wueig"]
+[ext_resource type="PackedScene" uid="uid://28g7d5ayexju" path="res://Sprites/troll.tscn" id="16_4mqbc"]
 
 [node name="Capsule Item" instance=ExtResource("1_5xpwm")]
 collision_layer = 2
 sticky = true
 
-[node name="Capsule" parent="." index="0" instance=ExtResource("2_xfqqu")]
+[node name="Capsule" parent="." index="0" node_paths=PackedStringArray("toyNode") instance=ExtResource("2_xfqqu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+toyNode = NodePath("../ToyPos")
+itemMeshes = Array[PackedScene]([ExtResource("3_ln3gk"), ExtResource("4_4dvnk"), ExtResource("5_xrxmm"), ExtResource("6_tkgrj"), ExtResource("7_bth8u"), ExtResource("8_qlbwo"), ExtResource("9_i1tm1"), ExtResource("10_3hlo0"), ExtResource("11_usvc6"), ExtResource("12_151xs"), ExtResource("13_h14cg"), ExtResource("14_s8kvx"), ExtResource("15_wueig"), ExtResource("16_4mqbc")])
 
 [node name="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0.353445, 0)
+
+[node name="ToyPos" parent="." index="2" instance=ExtResource("3_ln3gk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+visible = false
