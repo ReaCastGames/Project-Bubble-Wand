@@ -91,7 +91,7 @@ autoplay = true
 playback_type = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, 8, 0)
+transform = Transform3D(1, 0, 0, 0, 0.573577, 0.819152, 0, -0.819152, 0.573577, 0, 5.68, -4)
 fov = 120.0
 
 [node name="Light" type="OmniLight3D" parent="."]
@@ -103,15 +103,16 @@ omni_range = 3.278
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -100)
 obstacleScene = ExtResource("3_nh1eo")
 capsuleScene = ExtResource("4_bop00")
+spawnDelay = 0.5
 
 [node name="Player" parent="." instance=ExtResource("5_vm2lf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.452243, -4.05192)
-speed = 7.5
+speed = 9.0
 acceleration = 10.0
-brakeMultiplier = 1.5
+brakeMultiplier = 4.0
 
 [node name="Player Capsule" parent="Player" instance=ExtResource("3_rxo0v")]
-transform = Transform3D(0.974649, 0.0402082, 0.220099, -0.14962, 0.848539, 0.507538, -0.166356, -0.527603, 0.833043, 0, 0.0477568, 0.0519238)
+transform = Transform3D(0.995634, -0.0788012, 0.0500536, -0.0340257, 0.192969, 0.980614, -0.0869325, -0.978035, 0.189445, 0, 0.0477568, 0.0519238)
 script = null
 
 [node name="Toy" parent="Player/Player Capsule" node_paths=PackedStringArray("target") instance=ExtResource("8_fv0yb")]
