@@ -9,6 +9,7 @@ public partial class GameScene : Node3D {
 	public const int HEALTH_DEFAULT = 5;
 
 	public int Health { get; set; } = HEALTH_DEFAULT;
+	public int Score { get; set; }
 
 	public override void _Ready() {
 		PlayerControls.OnHit += OnPlayerHit;
@@ -34,5 +35,8 @@ public partial class GameScene : Node3D {
 		}
 	}
 
-	public void OnPlayerGainScore() { }
+	public void OnPlayerGainScore() {
+		Score++;
+		HUD.ShowScore(Score);
+	}
 }

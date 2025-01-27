@@ -19,5 +19,7 @@ public partial class Hud : MarginContainer {
 		Lives.Update(health);
 	}
 
-	public void ShowScore(int score) { }
+	public void ShowScore(int score) {
+		Score.UpdateScore(score);
+	}
 }
