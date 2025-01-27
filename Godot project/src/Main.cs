@@ -18,7 +18,7 @@ public partial class Main : Node2D {
 #if DEBUG
 	public TestEnvironment Environment = default!;
 
-	public const float THEME_SCALE = 4f;
+	public const float THEME_SCALE = 5f;
 #endif
 
 	public override void _Ready() {
@@ -43,23 +43,14 @@ public partial class Main : Node2D {
 
 	private void RunScene() {
 		var window = GetWindow();
-		var scaleInfo = Display.GetWindowDpiScaleInfo(window, themeScale: 3);
+		var scaleInfo = Display.GetWindowDpiScaleInfo(window, themeScale: THEME_SCALE);
 
 
 		var godotScaleFactor = DisplayServer.ScreenGetScale(window.CurrentScreen);
 
-		if (Features.OperatingSystem == OSFamily.Windows && Mathf.IsEqualApprox(godotScaleFactor, 1f)) {
-			var screenSize = DisplayServer.ScreenGetSize(window.CurrentScreen);
-			var projectDesignSize = new Vector2I(3840, 2160) * 2;
 
-			window.ContentScaleFactor = Mathf.Min(
-				(float)screenSize.X / projectDesignSize.X,
-				(float)screenSize.Y / projectDesignSize.Y
-			);
-		}
-		else {
-			window.ContentScaleFactor = scaleInfo.ContentScaleFactor;
-		}
+		window.ContentScaleFactor = scaleInfo.ContentScaleFactor;
+
 
 		GetTree().ChangeSceneToFile("res://src/SceneManager/SceneManager.tscn");
 	}
