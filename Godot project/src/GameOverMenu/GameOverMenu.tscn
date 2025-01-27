@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqaiseh2s52xa"]
+[gd_scene load_steps=5 format=3 uid="uid://bqaiseh2s52xa"]
 
 [ext_resource type="Script" path="res://src/GameOverMenu/GameOverMenu.cs" id="1_3cjq0"]
 [ext_resource type="Texture2D" uid="uid://ultq3mw556uv" path="res://UI/graphics/backdrop.png" id="1_bxe4p"]
+[ext_resource type="AudioStream" uid="uid://lfb66fhrthvb" path="res://Audio/Music/Sidewalk Menu.ogg" id="3_c0jol"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k5l3b"]
 font_size = 256
@@ -64,3 +65,10 @@ label_settings = SubResource("LabelSettings_k5l3b")
 unique_name_in_owner = true
 layout_mode = 2
 text = "Main Menu"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_c0jol")
+volume_db = -10.0
+autoplay = true
+playback_type = 1
+parameters/looping = true

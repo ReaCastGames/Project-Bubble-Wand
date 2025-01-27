@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0wbg1wftuu55"]
+[gd_scene load_steps=8 format=3 uid="uid://c0wbg1wftuu55"]
 
 [ext_resource type="Script" path="res://src/MainMenu/MainMenu.cs" id="1_5soyn"]
 [ext_resource type="Texture2D" uid="uid://hqkooeduup2y" path="res://UI/graphics/title.png" id="1_hepxh"]
 [ext_resource type="Texture2D" uid="uid://ultq3mw556uv" path="res://UI/graphics/backdrop.png" id="3_i4gww"]
+[ext_resource type="AudioStream" uid="uid://lfb66fhrthvb" path="res://Audio/Music/Sidewalk Menu.ogg" id="4_ddtc1"]
 
 [sub_resource type="Animation" id="Animation_7b4bu"]
 length = 0.001
@@ -84,3 +85,10 @@ libraries = {
 "": SubResource("AnimationLibrary_jhhg2")
 }
 autoplay = "title_float"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ddtc1")
+volume_db = -10.0
+autoplay = true
+playback_type = 1
+parameters/looping = true
