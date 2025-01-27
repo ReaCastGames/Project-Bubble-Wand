@@ -10,7 +10,14 @@ public partial class GameScene : Node3D {
 
 	public int Health { get; set; } = HEALTH_DEFAULT;
 
+	[Export] public AudioStreamPlayer audioStreamPlayerSFX;
+	[Export] public AudioStreamPlayer audioStreamPlayerMusic;
+	[Export] public AudioStreamOggVorbis gameOverSFX;
+	[Export] public AudioStreamOggVorbis capsuleAttachSFX;
+	[Export] public AudioStreamOggVorbis bubblePopSFX;
+
 	public override void _Ready() {
+
 		PlayerControls.OnHit += OnPlayerHit;
 		PlayerControls.OnGainScore += OnPlayerGainScore;
 
@@ -31,8 +38,14 @@ public partial class GameScene : Node3D {
 		if (Health == 0) {
 			Health = HEALTH_DEFAULT;
 			SceneManager.EndGame();
+			audioStreamPlayerMusic.Stop();
+			audioStreamPlayerSFX.Stream = gameOverSFX;
+			audioStreamPlayerSFX.Play();
 		}
 	}
 
-	public void OnPlayerGainScore() { }
+	public void OnPlayerGainScore() {
+		audioStreamPlayerSFX.Stream = capsuleAttachSFX;
+		audioStreamPlayerSFX.Play();
+	}
 }
