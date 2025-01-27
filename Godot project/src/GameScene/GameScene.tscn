@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bb48tqf551nj4"]
+[gd_scene load_steps=29 format=3 uid="uid://bb48tqf551nj4"]
 
 [ext_resource type="Script" path="res://src/GameScene/GameScene.cs" id="1_kjnf2"]
 [ext_resource type="AudioStream" uid="uid://dqbdjbvemhvt8" path="res://Audio/Music/Sidewalk.ogg" id="2_fq3y8"]
@@ -11,9 +11,15 @@
 [ext_resource type="AudioStream" uid="uid://ct8pd7vsh5fo3" path="res://Audio/SFX/Pop.ogg" id="4_i1wwr"]
 [ext_resource type="PackedScene" uid="uid://w3vlmb7ceiug" path="res://Models/Water.tscn" id="4_v83lb"]
 [ext_resource type="PackedScene" uid="uid://dn2i7q41k5oqb" path="res://Models/River.tscn" id="5_q45jm"]
+[ext_resource type="AudioStream" uid="uid://dxysi72ygejbh" path="res://Audio/SFX/FishHit1.ogg" id="5_vahmh"]
 [ext_resource type="PackedScene" uid="uid://bsjvqt8qcb8s5" path="res://src/player.tscn" id="5_vm2lf"]
+[ext_resource type="AudioStream" uid="uid://chyxpygs8x3xq" path="res://Audio/SFX/FishHit2.ogg" id="6_2j7q6"]
+[ext_resource type="AudioStream" uid="uid://ca4bynayrc6bb" path="res://Audio/SFX/FishHit3.ogg" id="7_34kdt"]
 [ext_resource type="PackedScene" uid="uid://ctrssm7dt02j1" path="res://src/Despawner/Despawner.tscn" id="8_3g6aa"]
-[ext_resource type="PackedScene" uid="uid://cr3mbr68ljld3" path="res://Sprites/blackholewhole.tscn" id="8_fv0yb"]
+[ext_resource type="AudioStream" uid="uid://gok5hj8qdko2" path="res://Audio/SFX/FishHit4.ogg" id="8_d8560"]
+[ext_resource type="PackedScene" path="res://Sprites/blackholewhole.tscn" id="8_fv0yb"]
+[ext_resource type="AudioStream" uid="uid://c4cr6icgadjtu" path="res://Audio/SFX/FishHit5.ogg" id="9_522ir"]
+[ext_resource type="AudioStream" uid="uid://dlxqks8iacltb" path="res://Audio/SFX/FishHit6.ogg" id="10_sj24e"]
 [ext_resource type="PackedScene" uid="uid://djk2icgfoe5lv" path="res://src/HUD/HUD.tscn" id="10_vdeuv"]
 
 [sub_resource type="Sky" id="Sky_81smu"]
@@ -52,13 +58,15 @@ size = Vector3(61.6318, 29.0917, 15.4191)
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8ifx"]
 size = Vector3(18.6699, 51.2922, 58.0983)
 
-[node name="GameScene" type="Node3D" node_paths=PackedStringArray("audioStreamPlayerSFX", "audioStreamPlayerMusic")]
+[node name="GameScene" type="Node3D" node_paths=PackedStringArray("audioStreamPlayerSFX", "audioStreamPlayerMusic", "flotsamCollideAudioPlayer")]
 script = ExtResource("1_kjnf2")
 audioStreamPlayerSFX = NodePath("SFX")
 audioStreamPlayerMusic = NodePath("Music")
 gameOverSFX = ExtResource("2_xu8e1")
 capsuleAttachSFX = ExtResource("3_4ls5v")
 bubblePopSFX = ExtResource("4_i1wwr")
+flotsamCollideAudioPlayer = NodePath("SFX FISH")
+audioFiles = Array[AudioStreamOggVorbis]([ExtResource("5_vahmh"), ExtResource("6_2j7q6"), ExtResource("7_34kdt"), ExtResource("8_d8560"), ExtResource("9_522ir"), ExtResource("10_sj24e")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hwwpv")
@@ -73,6 +81,11 @@ playback_type = 1
 parameters/looping = true
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+autoplay = true
+playback_type = 1
+
+[node name="SFX FISH" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0
 autoplay = true
 playback_type = 1

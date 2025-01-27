@@ -10,11 +10,14 @@ public partial class GameScene : Node3D {
 
 	public int Health { get; set; } = HEALTH_DEFAULT;
 
-	[Export] public AudioStreamPlayer audioStreamPlayerSFX;
-	[Export] public AudioStreamPlayer audioStreamPlayerMusic;
-	[Export] public AudioStreamOggVorbis gameOverSFX;
-	[Export] public AudioStreamOggVorbis capsuleAttachSFX;
-	[Export] public AudioStreamOggVorbis bubblePopSFX;
+	[Export] public AudioStreamPlayer audioStreamPlayerSFX = default!;
+	[Export] public AudioStreamPlayer audioStreamPlayerMusic = default!;
+	[Export] public AudioStreamOggVorbis gameOverSFX = default!;
+	[Export] public AudioStreamOggVorbis capsuleAttachSFX = default!;
+	[Export] public AudioStreamOggVorbis bubblePopSFX = default!;
+
+	[Export] private AudioStreamPlayer flotsamCollideAudioPlayer = default!;
+	[Export] private AudioStreamOggVorbis[] audioFiles = default!;
 
 	public override void _Ready() {
 
@@ -35,6 +38,8 @@ public partial class GameScene : Node3D {
 		GD.Print("Health: " + Health);
 		HUD.LoseALife(Health);
 
+		PlayCollisionAudio();
+
 		if (Health == 0) {
 			Health = HEALTH_DEFAULT;
 			SceneManager.EndGame();
@@ -47,5 +52,10 @@ public partial class GameScene : Node3D {
 	public void OnPlayerGainScore() {
 		audioStreamPlayerSFX.Stream = capsuleAttachSFX;
 		audioStreamPlayerSFX.Play();
+	}
+
+	private void PlayCollisionAudio() {
+		flotsamCollideAudioPlayer.Stream = audioFiles[GameScene.RandomNumberGenerator.RandiRange(0, audioFiles.Length - 1)];
+		flotsamCollideAudioPlayer.Play();
 	}
 }

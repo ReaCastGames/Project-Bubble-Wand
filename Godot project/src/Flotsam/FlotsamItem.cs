@@ -14,9 +14,6 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 	private float randomX = 1;
 	private Vector3 rotationValue;
 
-	[Export] private AudioStreamPlayer3D flotsamCollideAudioPlayer = default!;
-	[Export] private AudioStreamOggVorbis[] audioFiles = default!;
-
 	public override void _Ready() {
 		// Start from a random X position;
 		Position = new(Position.X + (GameScene.RandomNumberGenerator.RandfRange(-1, 1) * (riverWidth / 2)), Position.Y,
@@ -71,7 +68,7 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 
 		var controls = (PlayerControls)collidedNode;
 		controls.TakeDamage();
-		PlayCollisionAudio();
+		//PlayCollisionAudio();
 	}
 
 	private void Stick(Node3D collidedNode) {
@@ -142,11 +139,6 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 		controls.GainScore();
 
 		QueueFree();
-	}
-
-	private void PlayCollisionAudio() {
-		flotsamCollideAudioPlayer.Stream = audioFiles[GameScene.RandomNumberGenerator.RandiRange(0, audioFiles.Length - 1)];
-		flotsamCollideAudioPlayer.Play();
 	}
 
 }
