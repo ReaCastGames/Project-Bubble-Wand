@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cm6f42rcae1b5"]
 
 [ext_resource type="PackedScene" uid="uid://bwudvkqd0h01u" path="res://Models/capsule.blend" id="1_f4aa6"]
-[ext_resource type="Material" path="res://Models/CapsuleCap.tres" id="3_hc102"]
+[ext_resource type="Material" uid="uid://bvhids0wf0ck7" path="res://Models/CapsuleCap.tres" id="3_hc102"]
 [ext_resource type="Material" uid="uid://ch2lrg8gwe6cs" path="res://Models/CapsuleBowl.tres" id="4_ijcar"]
 
 [node name="capsule" instance=ExtResource("1_f4aa6")]

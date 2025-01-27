@@ -1,29 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://cdhyrse0iapvc"]
+[gd_scene load_steps=5 format=3 uid="uid://cdhyrse0iapvc"]
 
 [ext_resource type="PackedScene" uid="uid://bwudvkqd0h01u" path="res://Models/capsule.blend" id="1_5g5gf"]
 [ext_resource type="Script" path="res://src/Flotsam/FlotsamItems/Capsule/Capsule.cs" id="2_4hpe7"]
-[ext_resource type="Material" uid="uid://c4g5yi06n1k6q" path="res://Models/CapsuleCap.tres" id="2_hlcmu"]
+[ext_resource type="Material" uid="uid://bvhids0wf0ck7" path="res://Models/CapsuleCap.tres" id="2_hlcmu"]
 [ext_resource type="Material" uid="uid://ch2lrg8gwe6cs" path="res://Models/CapsuleBowl.tres" id="3_hdkru"]
-[ext_resource type="PackedScene" uid="uid://ccgjwbirgxks2" path="res://Sprites/alien.tscn" id="3_nxjup"]
-[ext_resource type="PackedScene" uid="uid://c13aw4mh7nc03" path="res://Sprites/fingerpuppet.tscn" id="4_njue6"]
-[ext_resource type="PackedScene" uid="uid://tsfpokxh353a" path="res://Sprites/goldfish.tscn" id="5_kqj25"]
-[ext_resource type="PackedScene" uid="uid://dahl5n1itx5of" path="res://Sprites/hairclip.tscn" id="6_yx121"]
-[ext_resource type="PackedScene" uid="uid://cw5n47mp5o5g7" path="res://Sprites/hamster.tscn" id="7_sla2q"]
-[ext_resource type="PackedScene" uid="uid://cicpfrqsg710k" path="res://Sprites/lipgloss.tscn" id="8_bcobj"]
-[ext_resource type="PackedScene" uid="uid://0qofq0dqqko2" path="res://Sprites/notcarebear.tscn" id="9_j7m3b"]
-[ext_resource type="PackedScene" uid="uid://krumd6pb524j" path="res://Sprites/notfurby.tscn" id="10_nx7lv"]
-[ext_resource type="PackedScene" uid="uid://bcrddctddjwqm" path="res://Sprites/notlittlestpetshop.tscn" id="11_m2405"]
-[ext_resource type="PackedScene" uid="uid://bu4h87yje5y5c" path="res://Sprites/notmylittlepony.tscn" id="12_fia1x"]
-[ext_resource type="PackedScene" uid="uid://dqhsthy0wk5i" path="res://Sprites/notpikachu.tscn" id="13_7steh"]
-[ext_resource type="PackedScene" uid="uid://c0c3sshylxx7a" path="res://Sprites/nottamagucci.tscn" id="14_8tcae"]
-[ext_resource type="PackedScene" uid="uid://ckf3dv5v8qbqb" path="res://Sprites/ringpop.tscn" id="15_hvsva"]
-[ext_resource type="PackedScene" uid="uid://28g7d5ayexju" path="res://Sprites/troll.tscn" id="16_ohh0p"]
 
-[node name="capsule" instance=ExtResource("1_5g5gf")]
+[node name="capsule" node_paths=PackedStringArray("cap") instance=ExtResource("1_5g5gf")]
 script = ExtResource("2_4hpe7")
-itemMeshes = Array[PackedScene]([ExtResource("3_nxjup"), ExtResource("4_njue6"), ExtResource("5_kqj25"), ExtResource("6_yx121"), ExtResource("7_sla2q"), ExtResource("8_bcobj"), ExtResource("9_j7m3b"), ExtResource("10_nx7lv"), ExtResource("11_m2405"), ExtResource("12_fia1x"), ExtResource("13_7steh"), ExtResource("14_8tcae"), ExtResource("15_hvsva"), ExtResource("16_ohh0p")])
+cap = NodePath("Sphere")
 
 [node name="Sphere" parent="." index="0"]
+unique_name_in_owner = true
 surface_material_override/0 = ExtResource("2_hlcmu")
 
 [node name="Sphere_001" parent="." index="1"]
