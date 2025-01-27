@@ -78,23 +78,37 @@ public partial class FlotsamItem : CharacterBody3D, IDespawn {
 
 		GetParent()?.RemoveChild(this);
 
-		var children = this.GetChildren();
+		// var children = this.GetChildren();
 		Node toy = GetChild(-1);
+		// foreach (var child in children) {
+		// 	GD.Print("child: " + child.Name);
+		// 	if (child.Name == "Toy") {
+		// 		child.GetParent().RemoveChild(child);
+		// 		toy = child;
+		// 		break;
+		// 	}
+		// }
+
+		Capsule? capsule = default;
+		var children = GetChildren();
 		foreach (var child in children) {
-			GD.Print("child: " + child.Name);
-			if (child.Name == "Toy") {
-				child.GetParent().RemoveChild(child);
-				toy = child;
+			if (child is Capsule) {
+				capsule = child as Capsule;
 				break;
 			}
 		}
 
 		var propResource = GD.Load<PackedScene>("res://src/Flotsam/FlotsamItems/Capsule/Capsule_prop_parent.tscn");
-		//var propResource = GD.Load<PackedScene>("res://src/test_junk/junk_prop.tscn");
 		var prop = (Node3D)propResource.Instantiate();
 		collidedNode.AddChild(prop);
+
+		var cap = prop.GetChild(-1).GetChild(0) as MeshInstance3D;
+		var material = (BaseMaterial3D)cap.GetSurfaceOverrideMaterial(0);
+		material.AlbedoColor = capsule.capColor;
+		cap.SetSurfaceOverrideMaterial(0, material);
 		var collisionShape = prop.GetNode<CollisionShape3D>("CollisionShape3D");
 		prop.GlobalPosition = collidedNode.GlobalPosition + relativePosition;
+		toy.GetParent().RemoveChild(toy);
 		prop.AddChild(toy);
 		((Node3D)toy).Position = Vector3.Zero;
 		prop.RemoveChild(collisionShape);
